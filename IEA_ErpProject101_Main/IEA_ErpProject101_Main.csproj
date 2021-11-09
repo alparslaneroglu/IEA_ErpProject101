@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.Designer.cs">
+      <DependentUpon>frmHastaneGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
+      <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectWMPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectWMPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectWMPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblCariGruplari.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblCariler.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblDepartmanlar.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +99,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.resx">
+      <DependentUpon>frmHastaneGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.resx">
+      <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,7 +116,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Entity\ErpProjectWMPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ErpProjectWMPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\ErpProjectWMPModel.edmx.diagram">
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +138,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ara32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ICO\RightLeft2Red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Ara32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\ErpProjectWMPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ErpProjectWMPModel.Context.cs</LastGenOutput>
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\ErpProjectWMPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Images\exit-48.png" />
+    <None Include="Images\Cikis32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
