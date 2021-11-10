@@ -46,7 +46,9 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<bool> isActive { get; set; }
+        public string CariNo { get; set; }
     
         public virtual tblCariGruplari tblCariGruplari { get; set; }
+        public virtual tblSehirler tblSehirler { get; set; }
     }
 }

@@ -18,6 +18,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariNo" Type="nvarchar" MaxLength="10" />
           <Property Name="CariGroupId" Type="int" />
           <Property Name="CariTipId" Type="int" />
           <Property Name="CariAdi" Type="nvarchar" MaxLength="100" />
@@ -59,6 +60,13 @@
           <Property Name="DepartmanAdi" Type="nvarchar" MaxLength="50" />
           <Property Name="isActive" Type="bit" />
         </EntityType>
+        <EntityType Name="tblSehirler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <Association Name="FK_tblCariler_tblCariGruplari">
           <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
           <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
@@ -68,6 +76,18 @@
             </Principal>
             <Dependent Role="tblCariler">
               <PropertyRef Name="CariGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCariler_tblSehirler">
+          <End Role="tblSehirler" Type="Self.tblSehirler" Multiplicity="0..1" />
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSehirler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="SehirId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -87,8 +107,13 @@
           <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCariler" EntityType="Self.tblCariler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCariler_tblSehirler" Association="Self.FK_tblCariler_tblSehirler">
+            <End Role="tblSehirler" EntitySet="tblSehirler" />
             <End Role="tblCariler" EntitySet="tblCariler" />
           </AssociationSet>
           <AssociationSet Name="FK_tblDepartmanlar_tblCariGruplari" Association="Self.FK_tblDepartmanlar_tblCariGruplari">
@@ -110,6 +135,11 @@
           <EntitySet Name="tblCariler" EntityType="ErpProjectWMPModel.tblCariler" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <EntitySet Name="tblSehirler" EntityType="ErpProjectWMPModel.tblSehirler" />
+          <AssociationSet Name="FK_tblCariler_tblSehirler" Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler">
+            <End Role="tblSehirler" EntitySet="tblSehirler" />
             <End Role="tblCariler" EntitySet="tblCariler" />
           </AssociationSet>
         </EntityContainer>
@@ -182,6 +212,8 @@
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="tblCariGruplari" Relationship="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
+          <NavigationProperty Name="tblSehirler" Relationship="ErpProjectWMPModel.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
+          <Property Name="CariNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_tblCariler_tblCariGruplari">
           <End Type="ErpProjectWMPModel.tblCariGruplari" Role="tblCariGruplari" Multiplicity="0..1" />
@@ -192,6 +224,26 @@
             </Principal>
             <Dependent Role="tblCariler">
               <PropertyRef Name="CariGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblSehirler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCariler" Relationship="ErpProjectWMPModel.FK_tblCariler_tblSehirler" FromRole="tblSehirler" ToRole="tblCariler" />
+        </EntityType>
+        <Association Name="FK_tblCariler_tblSehirler">
+          <End Type="ErpProjectWMPModel.tblSehirler" Role="tblSehirler" Multiplicity="0..1" />
+          <End Type="ErpProjectWMPModel.tblCariler" Role="tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSehirler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="SehirId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -223,6 +275,7 @@
           <EntitySetMapping Name="tblCariler">
             <EntityTypeMapping TypeName="ErpProjectWMPModel.tblCariler">
               <MappingFragment StoreEntitySet="tblCariler">
+                <ScalarProperty Name="CariNo" ColumnName="CariNo" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
@@ -255,6 +308,14 @@
                 <ScalarProperty Name="CariTipId" ColumnName="CariTipId" />
                 <ScalarProperty Name="CariGroupId" ColumnName="CariGroupId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSehirler">
+            <EntityTypeMapping TypeName="ErpProjectWMPModel.tblSehirler">
+              <MappingFragment StoreEntitySet="tblSehirler">
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

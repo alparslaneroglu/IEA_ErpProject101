@@ -30,16 +30,23 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         private void InitializeComponent()
         {
             this.pnlUst = new System.Windows.Forms.Panel();
+            this.lblHastaneKodu = new System.Windows.Forms.Label();
+            this.btnKayit = new System.Windows.Forms.Button();
             this.btnFormCikis = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
             this.pnlAlt = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Liste = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YetkiliAdi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblHastaneCari = new System.Windows.Forms.Label();
             this.lbladres = new System.Windows.Forms.Label();
             this.lbladres2 = new System.Windows.Forms.Label();
@@ -59,41 +66,68 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.txtEmail3 = new System.Windows.Forms.TextBox();
             this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.txtEmail1 = new System.Windows.Forms.TextBox();
-            this.txtytel3 = new System.Windows.Forms.TextBox();
-            this.txtytel2 = new System.Windows.Forms.TextBox();
-            this.txtytel1 = new System.Windows.Forms.TextBox();
-            this.txtycep1 = new System.Windows.Forms.TextBox();
-            this.txtycep2 = new System.Windows.Forms.TextBox();
-            this.txtycep3 = new System.Windows.Forms.TextBox();
             this.txtHastaneAdi = new System.Windows.Forms.TextBox();
-            this.txtHastaneKodu = new System.Windows.Forms.TextBox();
             this.txtHastaneCari = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txtAdres1 = new System.Windows.Forms.TextBox();
             this.txtAdres2 = new System.Windows.Forms.TextBox();
-            this.txtCariTipi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtVeriDairesi = new System.Windows.Forms.TextBox();
-            this.txtVerTcNo = new System.Windows.Forms.TextBox();
             this.lblhastanemail = new System.Windows.Forms.Label();
             this.lblhastanetel = new System.Windows.Forms.Label();
-            this.txtHastaneTel = new System.Windows.Forms.TextBox();
             this.txtHastaneMail = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtSehir = new System.Windows.Forms.ComboBox();
+            this.txtYcep1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYcep2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYcep3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYtel1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYtel2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYtel3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtVerTcNo = new System.Windows.Forms.MaskedTextBox();
+            this.txtHastaneTel = new System.Windows.Forms.MaskedTextBox();
+            this.pnlOrta = new System.Windows.Forms.Panel();
+            this.txtCariTipi = new System.Windows.Forms.ComboBox();
             this.pnlUst.SuspendLayout();
-            this.pnlAlt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.pnlOrta.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlUst
             // 
             this.pnlUst.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlUst.Controls.Add(this.lblHastaneKodu);
+            this.pnlUst.Controls.Add(this.btnKayit);
             this.pnlUst.Controls.Add(this.btnFormCikis);
+            this.pnlUst.Controls.Add(this.btnGuncelle);
+            this.pnlUst.Controls.Add(this.btnTemizle);
+            this.pnlUst.Controls.Add(this.btnSil);
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(1437, 69);
             this.pnlUst.TabIndex = 0;
+            // 
+            // lblHastaneKodu
+            // 
+            this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHastaneKodu.Location = new System.Drawing.Point(660, 19);
+            this.lblHastaneKodu.Name = "lblHastaneKodu";
+            this.lblHastaneKodu.Size = new System.Drawing.Size(192, 23);
+            this.lblHastaneKodu.TabIndex = 1;
+            this.lblHastaneKodu.Text = "***";
+            this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon64x64;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKayit.Location = new System.Drawing.Point(14, 6);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(69, 48);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.UseVisualStyleBackColor = true;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // btnFormCikis
             // 
@@ -103,69 +137,125 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.btnFormCikis.Location = new System.Drawing.Point(1373, 12);
             this.btnFormCikis.Name = "btnFormCikis";
             this.btnFormCikis.Size = new System.Drawing.Size(52, 42);
-            this.btnFormCikis.TabIndex = 0;
+            this.btnFormCikis.TabIndex = 4;
             this.btnFormCikis.UseVisualStyleBackColor = true;
             this.btnFormCikis.Click += new System.EventHandler(this.btnFormCikis_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(101, 6);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(69, 48);
+            this.btnGuncelle.TabIndex = 1;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil64;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(271, 6);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(69, 48);
+            this.btnTemizle.TabIndex = 3;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(184, 6);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(69, 48);
+            this.btnSil.TabIndex = 2;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // pnlAlt
             // 
             this.pnlAlt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlAlt.Controls.Add(this.button5);
-            this.pnlAlt.Controls.Add(this.button4);
-            this.pnlAlt.Controls.Add(this.button3);
-            this.pnlAlt.Controls.Add(this.button2);
             this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAlt.Location = new System.Drawing.Point(0, 666);
             this.pnlAlt.Name = "pnlAlt";
             this.pnlAlt.Size = new System.Drawing.Size(1437, 69);
             this.pnlAlt.TabIndex = 1;
             // 
-            // button5
+            // Liste
             // 
-            this.button5.Location = new System.Drawing.Point(1081, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(69, 54);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "button1";
-            this.button5.UseVisualStyleBackColor = true;
+            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Sira,
+            this.CariKodu,
+            this.CariAdi,
+            this.CariTel,
+            this.CariMail,
+            this.YetkiliAdi1});
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Liste.Location = new System.Drawing.Point(0, 516);
+            this.Liste.Name = "Liste";
+            this.Liste.RowHeadersWidth = 51;
+            this.Liste.RowTemplate.Height = 24;
+            this.Liste.Size = new System.Drawing.Size(1437, 150);
+            this.Liste.TabIndex = 2;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
-            // button4
+            // Id
             // 
-            this.button4.Location = new System.Drawing.Point(1156, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(69, 54);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
-            // button3
+            // Sira
             // 
-            this.button3.Location = new System.Drawing.Point(1231, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(69, 54);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sıra";
+            this.Sira.MinimumWidth = 6;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 62;
             // 
-            // button2
+            // CariKodu
             // 
-            this.button2.Location = new System.Drawing.Point(1306, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 54);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariKodu.HeaderText = "Hastane Kodu";
+            this.CariKodu.MinimumWidth = 6;
+            this.CariKodu.Name = "CariKodu";
+            this.CariKodu.Width = 117;
             // 
-            // dataGridView1
+            // CariAdi
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 516);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1437, 150);
-            this.dataGridView1.TabIndex = 2;
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Hastane Adı";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
+            // 
+            // CariTel
+            // 
+            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariTel.HeaderText = "Hastane Telefon";
+            this.CariTel.MinimumWidth = 6;
+            this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 130;
+            // 
+            // CariMail
+            // 
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Hastane Mail";
+            this.CariMail.MinimumWidth = 6;
+            this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 109;
+            // 
+            // YetkiliAdi1
+            // 
+            this.YetkiliAdi1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.YetkiliAdi1.HeaderText = "Yetkili Kişi";
+            this.YetkiliAdi1.MinimumWidth = 6;
+            this.YetkiliAdi1.Name = "YetkiliAdi1";
             // 
             // splitter1
             // 
@@ -180,29 +270,19 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(21, 87);
+            this.label1.Location = new System.Drawing.Point(36, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 23);
+            this.label1.Size = new System.Drawing.Size(136, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Hastane Adı :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(21, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Hastane Kodu:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblHastaneCari
             // 
             this.lblHastaneCari.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblHastaneCari.Location = new System.Drawing.Point(21, 153);
+            this.lblHastaneCari.Location = new System.Drawing.Point(39, 44);
             this.lblHastaneCari.Name = "lblHastaneCari";
-            this.lblHastaneCari.Size = new System.Drawing.Size(103, 23);
+            this.lblHastaneCari.Size = new System.Drawing.Size(133, 23);
             this.lblHastaneCari.TabIndex = 4;
             this.lblHastaneCari.Text = "Hastane Cari Adı :";
             this.lblHastaneCari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -210,7 +290,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // lbladres
             // 
             this.lbladres.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbladres.Location = new System.Drawing.Point(21, 186);
+            this.lbladres.Location = new System.Drawing.Point(69, 145);
             this.lbladres.Name = "lbladres";
             this.lbladres.Size = new System.Drawing.Size(103, 23);
             this.lbladres.TabIndex = 4;
@@ -220,7 +300,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // lbladres2
             // 
             this.lbladres2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lbladres2.Location = new System.Drawing.Point(21, 304);
+            this.lbladres2.Location = new System.Drawing.Point(678, 135);
             this.lbladres2.Name = "lbladres2";
             this.lbladres2.Size = new System.Drawing.Size(103, 23);
             this.lbladres2.TabIndex = 4;
@@ -230,7 +310,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Location = new System.Drawing.Point(462, 91);
+            this.label6.Location = new System.Drawing.Point(425, 220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 23);
             this.label6.TabIndex = 4;
@@ -240,7 +320,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label7.Location = new System.Drawing.Point(474, 186);
+            this.label7.Location = new System.Drawing.Point(613, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 23);
             this.label7.TabIndex = 4;
@@ -250,7 +330,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label8
             // 
             this.label8.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label8.Location = new System.Drawing.Point(593, 186);
+            this.label8.Location = new System.Drawing.Point(824, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(103, 23);
             this.label8.TabIndex = 4;
@@ -260,7 +340,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label9
             // 
             this.label9.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label9.Location = new System.Drawing.Point(719, 186);
+            this.label9.Location = new System.Drawing.Point(1218, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 23);
             this.label9.TabIndex = 4;
@@ -270,7 +350,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label10
             // 
             this.label10.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label10.Location = new System.Drawing.Point(848, 186);
+            this.label10.Location = new System.Drawing.Point(966, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 23);
             this.label10.TabIndex = 4;
@@ -280,7 +360,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label11
             // 
             this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label11.Location = new System.Drawing.Point(965, 187);
+            this.label11.Location = new System.Drawing.Point(1083, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(103, 23);
             this.label11.TabIndex = 4;
@@ -290,7 +370,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // label12
             // 
             this.label12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label12.Location = new System.Drawing.Point(617, 87);
+            this.label12.Location = new System.Drawing.Point(83, 259);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 27);
             this.label12.TabIndex = 4;
@@ -299,160 +379,104 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // 
             // txtYet1
             // 
-            this.txtYet1.Location = new System.Drawing.Point(477, 212);
+            this.txtYet1.Location = new System.Drawing.Point(518, 45);
             this.txtYet1.Name = "txtYet1";
-            this.txtYet1.Size = new System.Drawing.Size(100, 22);
-            this.txtYet1.TabIndex = 5;
+            this.txtYet1.Size = new System.Drawing.Size(214, 22);
+            this.txtYet1.TabIndex = 10;
             // 
             // txtYet2
             // 
-            this.txtYet2.Location = new System.Drawing.Point(477, 240);
+            this.txtYet2.Location = new System.Drawing.Point(518, 73);
             this.txtYet2.Name = "txtYet2";
-            this.txtYet2.Size = new System.Drawing.Size(100, 22);
-            this.txtYet2.TabIndex = 5;
+            this.txtYet2.Size = new System.Drawing.Size(214, 22);
+            this.txtYet2.TabIndex = 15;
             // 
             // txtYet3
             // 
-            this.txtYet3.Location = new System.Drawing.Point(477, 268);
+            this.txtYet3.Location = new System.Drawing.Point(518, 101);
             this.txtYet3.Name = "txtYet3";
-            this.txtYet3.Size = new System.Drawing.Size(100, 22);
-            this.txtYet3.TabIndex = 5;
+            this.txtYet3.Size = new System.Drawing.Size(214, 22);
+            this.txtYet3.TabIndex = 20;
             // 
             // txtDepartman1
             // 
             this.txtDepartman1.FormattingEnabled = true;
-            this.txtDepartman1.Location = new System.Drawing.Point(596, 212);
+            this.txtDepartman1.Location = new System.Drawing.Point(738, 43);
             this.txtDepartman1.Name = "txtDepartman1";
-            this.txtDepartman1.Size = new System.Drawing.Size(100, 24);
-            this.txtDepartman1.TabIndex = 6;
+            this.txtDepartman1.Size = new System.Drawing.Size(207, 24);
+            this.txtDepartman1.TabIndex = 11;
             // 
             // txtDepartman2
             // 
             this.txtDepartman2.FormattingEnabled = true;
-            this.txtDepartman2.Location = new System.Drawing.Point(596, 238);
+            this.txtDepartman2.Location = new System.Drawing.Point(738, 69);
             this.txtDepartman2.Name = "txtDepartman2";
-            this.txtDepartman2.Size = new System.Drawing.Size(100, 24);
-            this.txtDepartman2.TabIndex = 6;
+            this.txtDepartman2.Size = new System.Drawing.Size(207, 24);
+            this.txtDepartman2.TabIndex = 16;
             // 
             // txtDepartman3
             // 
             this.txtDepartman3.FormattingEnabled = true;
-            this.txtDepartman3.Location = new System.Drawing.Point(596, 266);
+            this.txtDepartman3.Location = new System.Drawing.Point(738, 97);
             this.txtDepartman3.Name = "txtDepartman3";
-            this.txtDepartman3.Size = new System.Drawing.Size(100, 24);
-            this.txtDepartman3.TabIndex = 6;
+            this.txtDepartman3.Size = new System.Drawing.Size(207, 24);
+            this.txtDepartman3.TabIndex = 21;
             // 
             // txtEmail3
             // 
-            this.txtEmail3.Location = new System.Drawing.Point(722, 268);
+            this.txtEmail3.Location = new System.Drawing.Point(1221, 98);
             this.txtEmail3.Name = "txtEmail3";
-            this.txtEmail3.Size = new System.Drawing.Size(100, 22);
-            this.txtEmail3.TabIndex = 7;
+            this.txtEmail3.Size = new System.Drawing.Size(214, 22);
+            this.txtEmail3.TabIndex = 24;
             // 
             // txtEmail2
             // 
-            this.txtEmail2.Location = new System.Drawing.Point(722, 240);
+            this.txtEmail2.Location = new System.Drawing.Point(1221, 70);
             this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.Size = new System.Drawing.Size(100, 22);
-            this.txtEmail2.TabIndex = 8;
+            this.txtEmail2.Size = new System.Drawing.Size(214, 22);
+            this.txtEmail2.TabIndex = 19;
             // 
             // txtEmail1
             // 
-            this.txtEmail1.Location = new System.Drawing.Point(722, 212);
+            this.txtEmail1.Location = new System.Drawing.Point(1221, 42);
             this.txtEmail1.Name = "txtEmail1";
-            this.txtEmail1.Size = new System.Drawing.Size(100, 22);
-            this.txtEmail1.TabIndex = 9;
-            // 
-            // txtytel3
-            // 
-            this.txtytel3.Location = new System.Drawing.Point(851, 268);
-            this.txtytel3.Name = "txtytel3";
-            this.txtytel3.Size = new System.Drawing.Size(100, 22);
-            this.txtytel3.TabIndex = 10;
-            // 
-            // txtytel2
-            // 
-            this.txtytel2.Location = new System.Drawing.Point(851, 240);
-            this.txtytel2.Name = "txtytel2";
-            this.txtytel2.Size = new System.Drawing.Size(100, 22);
-            this.txtytel2.TabIndex = 11;
-            // 
-            // txtytel1
-            // 
-            this.txtytel1.Location = new System.Drawing.Point(851, 212);
-            this.txtytel1.Name = "txtytel1";
-            this.txtytel1.Size = new System.Drawing.Size(100, 22);
-            this.txtytel1.TabIndex = 12;
-            // 
-            // txtycep1
-            // 
-            this.txtycep1.Location = new System.Drawing.Point(968, 212);
-            this.txtycep1.Name = "txtycep1";
-            this.txtycep1.Size = new System.Drawing.Size(100, 22);
-            this.txtycep1.TabIndex = 12;
-            // 
-            // txtycep2
-            // 
-            this.txtycep2.Location = new System.Drawing.Point(968, 240);
-            this.txtycep2.Name = "txtycep2";
-            this.txtycep2.Size = new System.Drawing.Size(100, 22);
-            this.txtycep2.TabIndex = 11;
-            // 
-            // txtycep3
-            // 
-            this.txtycep3.Location = new System.Drawing.Point(968, 268);
-            this.txtycep3.Name = "txtycep3";
-            this.txtycep3.Size = new System.Drawing.Size(100, 22);
-            this.txtycep3.TabIndex = 10;
+            this.txtEmail1.Size = new System.Drawing.Size(214, 22);
+            this.txtEmail1.TabIndex = 14;
             // 
             // txtHastaneAdi
             // 
-            this.txtHastaneAdi.Location = new System.Drawing.Point(142, 88);
+            this.txtHastaneAdi.Location = new System.Drawing.Point(190, 16);
             this.txtHastaneAdi.Name = "txtHastaneAdi";
-            this.txtHastaneAdi.Size = new System.Drawing.Size(100, 22);
-            this.txtHastaneAdi.TabIndex = 13;
-            // 
-            // txtHastaneKodu
-            // 
-            this.txtHastaneKodu.Location = new System.Drawing.Point(142, 122);
-            this.txtHastaneKodu.Name = "txtHastaneKodu";
-            this.txtHastaneKodu.Size = new System.Drawing.Size(100, 22);
-            this.txtHastaneKodu.TabIndex = 13;
+            this.txtHastaneAdi.Size = new System.Drawing.Size(276, 22);
+            this.txtHastaneAdi.TabIndex = 0;
             // 
             // txtHastaneCari
             // 
-            this.txtHastaneCari.Location = new System.Drawing.Point(142, 154);
+            this.txtHastaneCari.Location = new System.Drawing.Point(190, 45);
             this.txtHastaneCari.Name = "txtHastaneCari";
-            this.txtHastaneCari.Size = new System.Drawing.Size(100, 22);
-            this.txtHastaneCari.TabIndex = 13;
+            this.txtHastaneCari.Size = new System.Drawing.Size(276, 22);
+            this.txtHastaneCari.TabIndex = 1;
             // 
-            // textBox16
+            // txtAdres1
             // 
-            this.textBox16.Location = new System.Drawing.Point(142, 187);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(254, 75);
-            this.textBox16.TabIndex = 13;
+            this.txtAdres1.Location = new System.Drawing.Point(190, 135);
+            this.txtAdres1.Multiline = true;
+            this.txtAdres1.Name = "txtAdres1";
+            this.txtAdres1.Size = new System.Drawing.Size(482, 63);
+            this.txtAdres1.TabIndex = 4;
             // 
             // txtAdres2
             // 
-            this.txtAdres2.Location = new System.Drawing.Point(142, 305);
+            this.txtAdres2.Location = new System.Drawing.Point(787, 135);
             this.txtAdres2.Multiline = true;
             this.txtAdres2.Name = "txtAdres2";
-            this.txtAdres2.Size = new System.Drawing.Size(254, 138);
-            this.txtAdres2.TabIndex = 13;
-            // 
-            // txtCariTipi
-            // 
-            this.txtCariTipi.Location = new System.Drawing.Point(465, 122);
-            this.txtCariTipi.Name = "txtCariTipi";
-            this.txtCariTipi.Size = new System.Drawing.Size(100, 22);
-            this.txtCariTipi.TabIndex = 13;
+            this.txtAdres2.Size = new System.Drawing.Size(647, 63);
+            this.txtAdres2.TabIndex = 5;
             // 
             // label13
             // 
             this.label13.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label13.Location = new System.Drawing.Point(742, 83);
+            this.label13.Location = new System.Drawing.Point(425, 258);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 28);
             this.label13.TabIndex = 14;
@@ -461,22 +485,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // 
             // txtVeriDairesi
             // 
-            this.txtVeriDairesi.Location = new System.Drawing.Point(620, 122);
+            this.txtVeriDairesi.Location = new System.Drawing.Point(203, 264);
             this.txtVeriDairesi.Name = "txtVeriDairesi";
-            this.txtVeriDairesi.Size = new System.Drawing.Size(100, 22);
-            this.txtVeriDairesi.TabIndex = 15;
-            // 
-            // txtVerTcNo
-            // 
-            this.txtVerTcNo.Location = new System.Drawing.Point(745, 121);
-            this.txtVerTcNo.Name = "txtVerTcNo";
-            this.txtVerTcNo.Size = new System.Drawing.Size(100, 22);
-            this.txtVerTcNo.TabIndex = 15;
+            this.txtVeriDairesi.Size = new System.Drawing.Size(197, 22);
+            this.txtVeriDairesi.TabIndex = 8;
             // 
             // lblhastanemail
             // 
             this.lblhastanemail.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblhastanemail.Location = new System.Drawing.Point(705, 391);
+            this.lblhastanemail.Location = new System.Drawing.Point(67, 107);
             this.lblhastanemail.Name = "lblhastanemail";
             this.lblhastanemail.Size = new System.Drawing.Size(103, 23);
             this.lblhastanemail.TabIndex = 4;
@@ -486,31 +503,24 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // lblhastanetel
             // 
             this.lblhastanetel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblhastanetel.Location = new System.Drawing.Point(705, 358);
+            this.lblhastanetel.Location = new System.Drawing.Point(67, 73);
             this.lblhastanetel.Name = "lblhastanetel";
             this.lblhastanetel.Size = new System.Drawing.Size(103, 23);
             this.lblhastanetel.TabIndex = 4;
             this.lblhastanetel.Text = "Hastane Tel:";
             this.lblhastanetel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtHastaneTel
-            // 
-            this.txtHastaneTel.Location = new System.Drawing.Point(826, 359);
-            this.txtHastaneTel.Name = "txtHastaneTel";
-            this.txtHastaneTel.Size = new System.Drawing.Size(100, 22);
-            this.txtHastaneTel.TabIndex = 13;
-            // 
             // txtHastaneMail
             // 
-            this.txtHastaneMail.Location = new System.Drawing.Point(826, 392);
+            this.txtHastaneMail.Location = new System.Drawing.Point(190, 107);
             this.txtHastaneMail.Name = "txtHastaneMail";
-            this.txtHastaneMail.Size = new System.Drawing.Size(100, 22);
-            this.txtHastaneMail.TabIndex = 13;
+            this.txtHastaneMail.Size = new System.Drawing.Size(276, 22);
+            this.txtHastaneMail.TabIndex = 3;
             // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label16.Location = new System.Drawing.Point(887, 83);
+            this.label16.Location = new System.Drawing.Point(83, 217);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 28);
             this.label16.TabIndex = 14;
@@ -520,60 +530,140 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // txtSehir
             // 
             this.txtSehir.FormattingEnabled = true;
-            this.txtSehir.Location = new System.Drawing.Point(890, 119);
+            this.txtSehir.Location = new System.Drawing.Point(203, 220);
             this.txtSehir.Name = "txtSehir";
-            this.txtSehir.Size = new System.Drawing.Size(100, 24);
+            this.txtSehir.Size = new System.Drawing.Size(197, 24);
             this.txtSehir.TabIndex = 6;
+            // 
+            // txtYcep1
+            // 
+            this.txtYcep1.Location = new System.Drawing.Point(1081, 41);
+            this.txtYcep1.Mask = "(999) 000-0000";
+            this.txtYcep1.Name = "txtYcep1";
+            this.txtYcep1.Size = new System.Drawing.Size(118, 22);
+            this.txtYcep1.TabIndex = 13;
+            // 
+            // txtYcep2
+            // 
+            this.txtYcep2.Location = new System.Drawing.Point(1081, 69);
+            this.txtYcep2.Mask = "(999) 000-0000";
+            this.txtYcep2.Name = "txtYcep2";
+            this.txtYcep2.Size = new System.Drawing.Size(118, 22);
+            this.txtYcep2.TabIndex = 18;
+            // 
+            // txtYcep3
+            // 
+            this.txtYcep3.Location = new System.Drawing.Point(1081, 95);
+            this.txtYcep3.Mask = "(999) 000-0000";
+            this.txtYcep3.Name = "txtYcep3";
+            this.txtYcep3.Size = new System.Drawing.Size(118, 22);
+            this.txtYcep3.TabIndex = 23;
+            // 
+            // txtYtel1
+            // 
+            this.txtYtel1.Location = new System.Drawing.Point(951, 43);
+            this.txtYtel1.Mask = "(999) 000-0000";
+            this.txtYtel1.Name = "txtYtel1";
+            this.txtYtel1.Size = new System.Drawing.Size(118, 22);
+            this.txtYtel1.TabIndex = 12;
+            // 
+            // txtYtel2
+            // 
+            this.txtYtel2.Location = new System.Drawing.Point(951, 71);
+            this.txtYtel2.Mask = "(999) 000-0000";
+            this.txtYtel2.Name = "txtYtel2";
+            this.txtYtel2.Size = new System.Drawing.Size(118, 22);
+            this.txtYtel2.TabIndex = 17;
+            // 
+            // txtYtel3
+            // 
+            this.txtYtel3.Location = new System.Drawing.Point(951, 97);
+            this.txtYtel3.Mask = "(999) 000-0000";
+            this.txtYtel3.Name = "txtYtel3";
+            this.txtYtel3.Size = new System.Drawing.Size(118, 22);
+            this.txtYtel3.TabIndex = 22;
+            // 
+            // txtVerTcNo
+            // 
+            this.txtVerTcNo.Location = new System.Drawing.Point(534, 264);
+            this.txtVerTcNo.Mask = "00000000000";
+            this.txtVerTcNo.Name = "txtVerTcNo";
+            this.txtVerTcNo.Size = new System.Drawing.Size(138, 22);
+            this.txtVerTcNo.TabIndex = 9;
+            // 
+            // txtHastaneTel
+            // 
+            this.txtHastaneTel.Location = new System.Drawing.Point(190, 73);
+            this.txtHastaneTel.Mask = "(999) 000-0000";
+            this.txtHastaneTel.Name = "txtHastaneTel";
+            this.txtHastaneTel.Size = new System.Drawing.Size(197, 22);
+            this.txtHastaneTel.TabIndex = 2;
+            // 
+            // pnlOrta
+            // 
+            this.pnlOrta.AutoScroll = true;
+            this.pnlOrta.Controls.Add(this.label1);
+            this.pnlOrta.Controls.Add(this.txtYtel3);
+            this.pnlOrta.Controls.Add(this.lbladres2);
+            this.pnlOrta.Controls.Add(this.txtYcep3);
+            this.pnlOrta.Controls.Add(this.txtYtel2);
+            this.pnlOrta.Controls.Add(this.lblhastanemail);
+            this.pnlOrta.Controls.Add(this.txtYcep2);
+            this.pnlOrta.Controls.Add(this.label6);
+            this.pnlOrta.Controls.Add(this.txtVerTcNo);
+            this.pnlOrta.Controls.Add(this.lblHastaneCari);
+            this.pnlOrta.Controls.Add(this.txtHastaneTel);
+            this.pnlOrta.Controls.Add(this.label7);
+            this.pnlOrta.Controls.Add(this.txtYtel1);
+            this.pnlOrta.Controls.Add(this.lbladres);
+            this.pnlOrta.Controls.Add(this.txtYcep1);
+            this.pnlOrta.Controls.Add(this.label8);
+            this.pnlOrta.Controls.Add(this.txtVeriDairesi);
+            this.pnlOrta.Controls.Add(this.lblhastanetel);
+            this.pnlOrta.Controls.Add(this.label16);
+            this.pnlOrta.Controls.Add(this.label9);
+            this.pnlOrta.Controls.Add(this.label13);
+            this.pnlOrta.Controls.Add(this.label10);
+            this.pnlOrta.Controls.Add(this.txtHastaneMail);
+            this.pnlOrta.Controls.Add(this.label11);
+            this.pnlOrta.Controls.Add(this.txtAdres2);
+            this.pnlOrta.Controls.Add(this.label12);
+            this.pnlOrta.Controls.Add(this.txtAdres1);
+            this.pnlOrta.Controls.Add(this.txtYet1);
+            this.pnlOrta.Controls.Add(this.txtHastaneCari);
+            this.pnlOrta.Controls.Add(this.txtYet2);
+            this.pnlOrta.Controls.Add(this.txtYet3);
+            this.pnlOrta.Controls.Add(this.txtDepartman1);
+            this.pnlOrta.Controls.Add(this.txtHastaneAdi);
+            this.pnlOrta.Controls.Add(this.txtCariTipi);
+            this.pnlOrta.Controls.Add(this.txtSehir);
+            this.pnlOrta.Controls.Add(this.txtEmail3);
+            this.pnlOrta.Controls.Add(this.txtDepartman2);
+            this.pnlOrta.Controls.Add(this.txtEmail2);
+            this.pnlOrta.Controls.Add(this.txtDepartman3);
+            this.pnlOrta.Controls.Add(this.txtEmail1);
+            this.pnlOrta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlOrta.Location = new System.Drawing.Point(0, 69);
+            this.pnlOrta.Name = "pnlOrta";
+            this.pnlOrta.Size = new System.Drawing.Size(1437, 436);
+            this.pnlOrta.TabIndex = 17;
+            // 
+            // txtCariTipi
+            // 
+            this.txtCariTipi.FormattingEnabled = true;
+            this.txtCariTipi.Location = new System.Drawing.Point(534, 217);
+            this.txtCariTipi.Name = "txtCariTipi";
+            this.txtCariTipi.Size = new System.Drawing.Size(197, 24);
+            this.txtCariTipi.TabIndex = 7;
             // 
             // frmHastaneGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 735);
-            this.Controls.Add(this.txtVerTcNo);
-            this.Controls.Add(this.txtVeriDairesi);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtHastaneMail);
-            this.Controls.Add(this.txtAdres2);
-            this.Controls.Add(this.txtHastaneTel);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.txtHastaneCari);
-            this.Controls.Add(this.txtHastaneKodu);
-            this.Controls.Add(this.txtCariTipi);
-            this.Controls.Add(this.txtHastaneAdi);
-            this.Controls.Add(this.txtycep3);
-            this.Controls.Add(this.txtytel3);
-            this.Controls.Add(this.txtycep2);
-            this.Controls.Add(this.txtytel2);
-            this.Controls.Add(this.txtycep1);
-            this.Controls.Add(this.txtytel1);
-            this.Controls.Add(this.txtEmail3);
-            this.Controls.Add(this.txtEmail2);
-            this.Controls.Add(this.txtEmail1);
-            this.Controls.Add(this.txtDepartman3);
-            this.Controls.Add(this.txtDepartman2);
-            this.Controls.Add(this.txtSehir);
-            this.Controls.Add(this.txtDepartman1);
-            this.Controls.Add(this.txtYet3);
-            this.Controls.Add(this.txtYet2);
-            this.Controls.Add(this.txtYet1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblhastanetel);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.lbladres);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.lblHastaneCari);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblhastanemail);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbladres2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnlOrta);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlAlt);
             this.Controls.Add(this.pnlUst);
             this.Name = "frmHastaneGiris";
@@ -581,10 +671,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHastaneGiris_FormClosing);
             this.Load += new System.EventHandler(this.frmHastaneGiris_Load);
             this.pnlUst.ResumeLayout(false);
-            this.pnlAlt.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.pnlOrta.ResumeLayout(false);
+            this.pnlOrta.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -593,14 +683,13 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         private System.Windows.Forms.Panel pnlUst;
         private System.Windows.Forms.Button btnFormCikis;
         private System.Windows.Forms.Panel pnlAlt;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnKayit;
+        private System.Windows.Forms.Button btnGuncelle;
+        private System.Windows.Forms.Button btnSil;
+        private System.Windows.Forms.Button btnTemizle;
+        private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblHastaneCari;
         private System.Windows.Forms.Label lbladres;
         private System.Windows.Forms.Label lbladres2;
@@ -620,26 +709,34 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         private System.Windows.Forms.TextBox txtEmail3;
         private System.Windows.Forms.TextBox txtEmail2;
         private System.Windows.Forms.TextBox txtEmail1;
-        private System.Windows.Forms.TextBox txtytel3;
-        private System.Windows.Forms.TextBox txtytel2;
-        private System.Windows.Forms.TextBox txtytel1;
-        private System.Windows.Forms.TextBox txtycep1;
-        private System.Windows.Forms.TextBox txtycep2;
-        private System.Windows.Forms.TextBox txtycep3;
         private System.Windows.Forms.TextBox txtHastaneAdi;
-        private System.Windows.Forms.TextBox txtHastaneKodu;
         private System.Windows.Forms.TextBox txtHastaneCari;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txtAdres1;
         private System.Windows.Forms.TextBox txtAdres2;
-        private System.Windows.Forms.TextBox txtCariTipi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtVeriDairesi;
-        private System.Windows.Forms.TextBox txtVerTcNo;
         private System.Windows.Forms.Label lblhastanemail;
         private System.Windows.Forms.Label lblhastanetel;
-        private System.Windows.Forms.TextBox txtHastaneTel;
         private System.Windows.Forms.TextBox txtHastaneMail;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox txtSehir;
+        private System.Windows.Forms.MaskedTextBox txtYcep1;
+        private System.Windows.Forms.MaskedTextBox txtYcep2;
+        private System.Windows.Forms.MaskedTextBox txtYcep3;
+        private System.Windows.Forms.MaskedTextBox txtYtel1;
+        private System.Windows.Forms.MaskedTextBox txtYtel2;
+        private System.Windows.Forms.MaskedTextBox txtYtel3;
+        private System.Windows.Forms.MaskedTextBox txtVerTcNo;
+        private System.Windows.Forms.MaskedTextBox txtHastaneTel;
+        private System.Windows.Forms.Panel pnlOrta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YetkiliAdi1;
+        private System.Windows.Forms.Label lblHastaneKodu;
+        private System.Windows.Forms.ComboBox txtCariTipi;
     }
 }
