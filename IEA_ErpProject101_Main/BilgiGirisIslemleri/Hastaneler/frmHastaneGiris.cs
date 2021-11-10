@@ -57,6 +57,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             Close();
         }
 
-       
+        
     }
 }
