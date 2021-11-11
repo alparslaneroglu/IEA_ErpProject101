@@ -96,6 +96,7 @@ namespace IEA_ErpProject101_Main
                 frmHastanelerListesi frm = new frmHastanelerListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
+                
                // kontrol = true;
             }
             else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] as frmHastaneGiris is null)
@@ -103,6 +104,7 @@ namespace IEA_ErpProject101_Main
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
+                
                 //kontrol = true;
             }
         }

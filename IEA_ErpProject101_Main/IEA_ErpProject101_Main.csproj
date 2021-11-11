@@ -166,6 +166,7 @@
       <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Images\arrow-1176.bmp" />
     <None Include="Images\Sil64.png" />
     <None Include="Images\Sil24x24.png" />
     <None Include="Images\Update32x32.png" />

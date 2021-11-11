@@ -1,11 +1,13 @@
 ﻿using IEA_ErpProject101_Main.Entity;
 using IEA_ErpProject101_Main.Fonksiyonlar;
+using IEA_ErpProject101_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,7 +63,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             Liste.AllowUserToAddRows = false;
         }
 
-        private void ComboDoldur()
+            private  void ComboDoldur()
         {
             var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
             var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
@@ -254,11 +256,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             Ac(secimId);
         }
 
-        private void Ac(int secimId)
+        public void Ac(int id)
         {
+            secimId = id; // Dış fromdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = erp.tblCariler.Find(id);
 
                 txtHastaneAdi.Text = hst.CariAdi;
                 txtHastaneMail.Text = hst.CariMail;
@@ -286,11 +289,36 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 txtVerTcNo.Text = hst.Tc_Vn;
                 txtSehir.Text = hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariNo;
+                txtKayitBul.Text = hst.CariNo;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button(); // Sanal arka planda bir buton oluşturduk Fiziksel bir buton değil.
+            btn.Size = new Size(25, txtKayitBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtKayitBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtKayitBul.Controls.Add(btn);
+            base.OnLoad(e);
+            btn.Click += btn_Click;  //Click eventini çalıştırma.Manuel olarak click eventi çalıştırılamaz.
+
+        }
+        [DllImport("user32.dll")] // Buna gerek yok ama bunun sayesinde daha iyi çalışıyor.
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+        private void btn_Click(object sender, EventArgs e) //Click eventi oluşturduk.
+        {
+            if (Application.OpenForms["frmHastanelerListesi"]==null)
+            {
+                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            SendToBack(); // Eğer frmHastaneGiris içerisinde close yazdıysan ben frmHastaneGirisi kapatıyorum. This. ifadesini başına eklemeye gerek yok.
         }
     }
 }
