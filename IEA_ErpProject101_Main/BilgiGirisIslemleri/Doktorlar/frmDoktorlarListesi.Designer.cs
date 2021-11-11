@@ -207,6 +207,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.Controls.Add(this.pnlUst);
             this.Name = "frmDoktorlarListesi";
             this.Text = "frmDoktorlarListesi";
+            this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.pnlUst.ResumeLayout(false);
             this.ResumeLayout(false);

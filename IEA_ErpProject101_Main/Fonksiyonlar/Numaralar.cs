@@ -27,5 +27,20 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
                 
             }
         }
+        public string CariKoduDoktor()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "D" + numara.ToString().PadLeft(8, '0'); // 8 haneli olanakadar başına 0 ekliyor.
+                return num;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

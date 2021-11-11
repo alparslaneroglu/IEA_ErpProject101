@@ -59,7 +59,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 i++;
                 sira++;
             }
-            lblDoktorKodu.Text = n.CariKoduHastane();
+            lblDoktorKodu.Text = n.CariKoduDoktor();
             Liste.AllowUserToAddRows = false;
         }
         private void ComboDoldur()
@@ -169,6 +169,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+
+            if (secimId!=-1)
+            {
+                Guncelle(); 
+            }
+        }
+
+        private void Guncelle()
         {
             tblCariler hst = erp.tblCariler.Find(secimId);
 
