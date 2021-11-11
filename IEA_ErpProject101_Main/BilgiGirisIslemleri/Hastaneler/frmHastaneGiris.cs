@@ -37,6 +37,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==1
                        select new
                        {
                            id = s.Id,
@@ -110,61 +111,61 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
         private void YeniKayit()
         {
-            string hkodu = n.CariKoduHastane();
-            try
-            {
-                if (secimId == -1)
+                string hkodu = n.CariKoduHastane();
+                try
                 {
-                    tblCariler hst = new tblCariler();
-                    hst.isActive = true;
-                    hst.CariAdi = txtHastaneAdi.Text;
-                    hst.CariMail = txtHastaneMail.Text;
-                    hst.CariTel = txtHastaneTel.Text;
-                    hst.YetkiliAdi1 = txtYet1.Text;
-                    hst.YetkiliAdi2 = txtYet2.Text;
-                    hst.YetkiliAdi3 = txtYet3.Text;
-                    hst.YetkiliDepartmani1 = txtDepartman1.Text;
-                    hst.YetkiliDepartmani2 = txtDepartman2.Text;
-                    hst.YetkiliDepartmani3 = txtDepartman3.Text;
-                    hst.YetkiliTel1 = txtYtel1.Text;
-                    hst.YetkiliTel2 = txtYtel2.Text;
-                    hst.YetkiliTel3 = txtYtel3.Text;
-                    hst.YetkiliCep1 = txtYcep1.Text;
-                    hst.YetkiliCep2 = txtYcep2.Text;
-                    hst.YetkiliCep3 = txtYcep3.Text;
-                    hst.YetkiliMail1 = txtEmail1.Text;
-                    hst.YetkiliMail2 = txtEmail2.Text;
-                    hst.YetkiliMail3 = txtEmail3.Text;
-                    hst.SaveUserId = 1;
-                    hst.SaveDate = DateTime.Now;
+                    if (secimId == -1)
+                    {
+                        tblCariler hst = new tblCariler();
+                        hst.isActive = true;
+                        hst.CariAdi = txtHastaneAdi.Text;
+                        hst.CariMail = txtHastaneMail.Text;
+                        hst.CariTel = txtHastaneTel.Text;
+                        hst.YetkiliAdi1 = txtYet1.Text;
+                        hst.YetkiliAdi2 = txtYet2.Text;
+                        hst.YetkiliAdi3 = txtYet3.Text;
+                        hst.YetkiliDepartmani1 = txtDepartman1.Text;
+                        hst.YetkiliDepartmani2 = txtDepartman2.Text;
+                        hst.YetkiliDepartmani3 = txtDepartman3.Text;
+                        hst.YetkiliTel1 = txtYtel1.Text;
+                        hst.YetkiliTel2 = txtYtel2.Text;
+                        hst.YetkiliTel3 = txtYtel3.Text;
+                        hst.YetkiliCep1 = txtYcep1.Text;
+                        hst.YetkiliCep2 = txtYcep2.Text;
+                        hst.YetkiliCep3 = txtYcep3.Text;
+                        hst.YetkiliMail1 = txtEmail1.Text;
+                        hst.YetkiliMail2 = txtEmail2.Text;
+                        hst.YetkiliMail3 = txtEmail3.Text;
+                        hst.SaveUserId = 1;
+                        hst.SaveDate = DateTime.Now;
 
-                    hst.Adres1 = txtAdres1.Text;
-                    hst.Adres2 = txtAdres2.Text;
-                    hst.CariGroupId = 1;
-                    hst.CariTipId = 1;
-                    hst.CariUnvan = txtHastaneCari.Text;
-                    hst.VDairesi = txtVeriDairesi.Text;
-                    hst.Tc_Vn = txtVerTcNo.Text;
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
-                    hst.CariNo = hkodu;
+                        hst.Adres1 = txtAdres1.Text;
+                        hst.Adres2 = txtAdres2.Text;
+                        hst.CariGroupId = 1;
+                        hst.CariTipId = 1;
+                        hst.CariUnvan = txtHastaneCari.Text;
+                        hst.VDairesi = txtVeriDairesi.Text;
+                        hst.Tc_Vn = txtVerTcNo.Text;
+                        hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
+                        hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
-                    MessageBox.Show("Kayıt başarılı..");
-                    Temizle();
-                    Listele();
-                }
-                else
-                {
-                    MessageBox.Show("Bu kayıt daha önce yapılmış.Kendine başka kayıt bul");
-                }          
+                        erp.tblCariler.Add(hst);
+                        erp.SaveChanges();
+                        MessageBox.Show("Kayıt başarılı..");
+                        Temizle();
+                        Listele();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bu kayıt daha önce yapılmış.Kendine başka kayıt bul");
+                    }          
                 
 
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -322,3 +323,4 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         }
     }
 }
+ 

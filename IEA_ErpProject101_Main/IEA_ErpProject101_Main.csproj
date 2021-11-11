@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGiris.Designer.cs">
+      <DependentUpon>frmDoktorGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.Designer.cs">
+      <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,7 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -103,6 +116,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGiris.resx">
+      <DependentUpon>frmDoktorGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.resx">
+      <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.resx">
       <DependentUpon>frmHastaneGiris.cs</DependentUpon>
     </EmbeddedResource>
