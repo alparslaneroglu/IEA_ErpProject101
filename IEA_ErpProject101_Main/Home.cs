@@ -1,6 +1,8 @@
 ﻿using IEA_ErpProject101_Main.BilgiGirisIslemleri;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
+using IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
+using IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,9 +41,14 @@ namespace IEA_ErpProject101_Main
 
 
 
-            tvBilgiGirisİslemleri.Nodes.Add("Cariler");
-            tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Cari Bilgi Giriş");
-            tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Cariler Listesi");
+            tvBilgiGirisİslemleri.Nodes.Add("Firmalar");
+            tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Firma Bilgi Giriş");
+            tvBilgiGirisİslemleri.Nodes[2].Nodes.Add("Firmalar Listesi");
+
+
+            tvBilgiGirisİslemleri.Nodes.Add("Personeller");
+            tvBilgiGirisİslemleri.Nodes[3].Nodes.Add("Personel Bilgi Giriş");
+            tvBilgiGirisİslemleri.Nodes[3].Nodes.Add("Personeller Listesi");
             #endregion
 
             #region Depo İşlemleri Menüsü
@@ -116,6 +123,36 @@ namespace IEA_ErpProject101_Main
             else if (isim== "Doktor Bilgi Giriş" && Application.OpenForms["frmDoktorGiris"]  is null)
             {
                 frmDoktorGiris frm = new frmDoktorGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] is null)
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Personel Bilgi Giriş" && Application.OpenForms["frmPersonelGiris"] is null)
+            {
+                frmPersonelGiris frm = new frmPersonelGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] is null)
+            {
+                frmPersonellerListesi frm = new frmPersonellerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Firma Bilgi Giriş" && Application.OpenForms["frmFirmaGiris"] is null)
+            {
+                frmFirmaGiris frm = new frmFirmaGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Firmalar Listesi" && Application.OpenForms["frmFirmalarListesi"] is null)
+            {
+                frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
             }

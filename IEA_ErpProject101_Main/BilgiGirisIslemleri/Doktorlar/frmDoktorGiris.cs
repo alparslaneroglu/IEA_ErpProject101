@@ -89,6 +89,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private void btnKayit_Click(object sender, EventArgs e)
         {
             YeniKayit();
+            
         }
 
         private void YeniKayit()
@@ -179,6 +180,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 
         private void Guncelle()
         {
+            if (secimId>0)
+            {
+                return;
+            }
+           
             tblCariler hst = erp.tblCariler.Find(secimId);
 
 
@@ -215,7 +221,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             Ac(secimId);
         }
 
-        private void Ac(int id)
+        public void Ac(int id)
         {
             secimId = id;
             try
@@ -236,7 +242,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 
                 txtVeriDairesi.Text = hst.VDairesi;
                 txtVerTcNo.Text = hst.Tc_Vn;
-                txtSehir.Text = hst.tblSehirler.sehir;
+                txtSehir.Text = hst.tblSehirler.sehir==null ? "" : hst.tblSehirler.sehir;
 
             }
             catch (Exception e)

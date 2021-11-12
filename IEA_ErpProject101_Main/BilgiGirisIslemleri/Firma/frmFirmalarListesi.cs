@@ -9,18 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
+namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
 {
-    public partial class frmDoktorlarListesi : Form
+    public partial class frmFirmalarListesi : Form
     {
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         private int secimId = -1;
-        public frmDoktorlarListesi()
+        public frmFirmalarListesi()
         {
             InitializeComponent();
         }
 
-        private void frmDoktorlarListesi_Load(object sender, EventArgs e)
+        private void frmFirmalarListesi_Load(object sender, EventArgs e)
         {
             Listele();
         }
@@ -30,8 +30,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==3
                        select s).ToList();
-            foreach (tblCariler k in lst)  
+            foreach (tblCariler k in lst)  // tblcariler diyerek sadece oradan kayıt al dışarıdan alma diyoruz.
             {
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = k.Id;
@@ -40,31 +41,31 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 Liste.Rows[i].Cells[3].Value = k.CariAdi;
                 Liste.Rows[i].Cells[4].Value = k.CariTel;
                 Liste.Rows[i].Cells[5].Value = k.CariMail;
-                Liste.Rows[i].Cells[6].Value = k.YetkiliCep1;
+                Liste.Rows[i].Cells[6].Value = k.YetkiliAdi1;
                 i++;
                 sira++;
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
-            Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
+            Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect; //enum classları mesela cevapları sürekli sabit olan şeylerin şablonları hazır tutuyoruz.Örneğin cinsiyet  kadın erkek belirtilmemiş .Bu seçeneklerden başka herhangi bir seçenek olmadığı için bu şekilde kullanmak istedğimiz herhangi bir yerden erişmemiz bu şekilde daha kolay oluyor.
         }
 
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1; //gelen değer null ise -1 al.                 
 
-            if (secimId > 0 && Application.OpenForms["frmHastaneGiris"] == null)
+            if (secimId > 0 && Application.OpenForms["frmFirmaGiris"] == null)
             {
-                frmDoktorGiris frm = new frmDoktorGiris();
+                frmFirmaGiris frm = new frmFirmaGiris();
                 frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
 
                 frm.Show();
                 frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
                 Close();
             }
-            else if (Application.OpenForms["frmHastaneGiris"] != null)
+            else if (Application.OpenForms["frmFirmaGiris"] != null)
             {
-                frmDoktorGiris frm1 = Application.OpenForms["frmDoktorGiris"] as frmDoktorGiris;
+                frmFirmaGiris frm1 = Application.OpenForms["frmFirmaGiris"] as frmFirmaGiris;
                 frm1.Ac(secimId);
                 Close();
 

@@ -39,7 +39,38 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
             catch (Exception)
             {
 
-                throw;
+                return "00000001";
+            }
+        }
+        public string CariKoduPersonel()
+        {
+            try
+            {
+                var numara = (from s in erp.tblPersonelDetay orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "P" + numara.ToString().PadLeft(8, '0'); // 8 haneli olanakadar başına 0 ekliyor.
+                return num;
+            }
+            catch (Exception)
+            {
+
+                return "P00000001";
+            }
+        }
+
+        internal string CariKoduFirma()
+        {
+            try
+            {
+                var numara = (from s in erp.tblPersonelDetay orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "P" + numara.ToString().PadLeft(8, '0'); // 8 haneli olanakadar başına 0 ekliyor.
+                return num;
+            }
+            catch (Exception)
+            {
+
+                return "F00000001";
             }
         }
     }

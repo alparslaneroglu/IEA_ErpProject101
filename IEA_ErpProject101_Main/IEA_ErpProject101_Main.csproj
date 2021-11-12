@@ -67,6 +67,18 @@
     <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.Designer.cs">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGirisIslemleri\Firma\frmFirmaGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Firma\frmFirmaGiris.Designer.cs">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Firma\frmFirmalarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Firma\frmFirmalarListesi.Designer.cs">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,18 @@
     </Compile>
     <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonelGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonelGiris.Designer.cs">
+      <DependentUpon>frmPersonelGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.Designer.cs">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -103,10 +127,15 @@
     <Compile Include="Entity\tblDepartmanlar.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblPersonelDetay.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
+    <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
+    <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -122,11 +151,23 @@
     <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.resx">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Firma\frmFirmaGiris.resx">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Firma\frmFirmalarListesi.resx">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.resx">
       <DependentUpon>frmHastaneGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.resx">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonelGiris.resx">
+      <DependentUpon>frmPersonelGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.resx">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

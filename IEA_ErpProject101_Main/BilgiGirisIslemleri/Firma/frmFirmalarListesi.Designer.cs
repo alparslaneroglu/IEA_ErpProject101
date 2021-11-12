@@ -1,7 +1,7 @@
 ﻿
-namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
+namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
 {
-    partial class frmDoktorlarListesi
+    partial class frmFirmalarListesi
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         /// </summary>
         private void InitializeComponent()
         {
-            this.Liste = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YetkiliAdi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.btnKayit = new System.Windows.Forms.Button();
@@ -44,83 +36,18 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.Liste = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirmaYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FyCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Liste
-            // 
-            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Sira,
-            this.CariKodu,
-            this.CariAdi,
-            this.CariTel,
-            this.CariMail,
-            this.YetkiliAdi1});
-            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Liste.Location = new System.Drawing.Point(0, 69);
-            this.Liste.Name = "Liste";
-            this.Liste.RowHeadersWidth = 51;
-            this.Liste.RowTemplate.Height = 24;
-            this.Liste.Size = new System.Drawing.Size(1269, 645);
-            this.Liste.TabIndex = 5;
-            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // Sira
-            // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sıra";
-            this.Sira.MinimumWidth = 6;
-            this.Sira.Name = "Sira";
-            this.Sira.Width = 62;
-            // 
-            // CariKodu
-            // 
-            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariKodu.HeaderText = "Hastane Kodu";
-            this.CariKodu.MinimumWidth = 6;
-            this.CariKodu.Name = "CariKodu";
-            this.CariKodu.Width = 117;
-            // 
-            // CariAdi
-            // 
-            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariAdi.HeaderText = "Hastane Adı";
-            this.CariAdi.MinimumWidth = 6;
-            this.CariAdi.Name = "CariAdi";
-            // 
-            // CariTel
-            // 
-            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariTel.HeaderText = "Hastane Telefon";
-            this.CariTel.MinimumWidth = 6;
-            this.CariTel.Name = "CariTel";
-            this.CariTel.Width = 130;
-            // 
-            // CariMail
-            // 
-            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariMail.HeaderText = "Hastane Mail";
-            this.CariMail.MinimumWidth = 6;
-            this.CariMail.Name = "CariMail";
-            this.CariMail.Width = 109;
-            // 
-            // YetkiliAdi1
-            // 
-            this.YetkiliAdi1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.YetkiliAdi1.HeaderText = "Yetkili Kişi";
-            this.YetkiliAdi1.MinimumWidth = 6;
-            this.YetkiliAdi1.Name = "YetkiliAdi1";
             // 
             // pnlUst
             // 
@@ -135,7 +62,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(1269, 69);
-            this.pnlUst.TabIndex = 4;
+            this.pnlUst.TabIndex = 2;
             // 
             // lblHastaneKodu
             // 
@@ -199,32 +126,107 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.btnSil.TabIndex = 2;
             this.btnSil.UseVisualStyleBackColor = true;
             // 
-            // frmDoktorlarListesi
+            // Liste
+            // 
+            this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Sira,
+            this.CariKodu,
+            this.CariAdi,
+            this.CariTel,
+            this.CariMail,
+            this.FirmaYetkili,
+            this.FyCep});
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Liste.Location = new System.Drawing.Point(0, 69);
+            this.Liste.Name = "Liste";
+            this.Liste.RowHeadersWidth = 51;
+            this.Liste.RowTemplate.Height = 24;
+            this.Liste.Size = new System.Drawing.Size(1269, 645);
+            this.Liste.TabIndex = 31;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sıra";
+            this.Sira.MinimumWidth = 6;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 62;
+            // 
+            // CariKodu
+            // 
+            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariKodu.HeaderText = "FirmaKodu";
+            this.CariKodu.MinimumWidth = 6;
+            this.CariKodu.Name = "CariKodu";
+            this.CariKodu.Width = 105;
+            // 
+            // CariAdi
+            // 
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Firma Adı";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
+            // 
+            // CariTel
+            // 
+            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariTel.HeaderText = "Firma Telefon";
+            this.CariTel.MinimumWidth = 6;
+            this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 124;
+            // 
+            // CariMail
+            // 
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Firma Mail";
+            this.CariMail.MinimumWidth = 6;
+            this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 101;
+            // 
+            // FirmaYetkili
+            // 
+            this.FirmaYetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FirmaYetkili.HeaderText = "Firma Yetkili";
+            this.FirmaYetkili.MinimumWidth = 6;
+            this.FirmaYetkili.Name = "FirmaYetkili";
+            // 
+            // FyCep
+            // 
+            this.FyCep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FyCep.HeaderText = "Yetkili Cep no";
+            this.FyCep.MinimumWidth = 6;
+            this.FyCep.Name = "FyCep";
+            this.FyCep.Width = 123;
+            // 
+            // frmFirmalarListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 714);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
-            this.Name = "frmDoktorlarListesi";
-            this.Text = "frmDoktorlarListesi";
-            this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.Name = "frmFirmalarListesi";
+            this.Text = "frmFirmalarListesi";
+            this.Load += new System.EventHandler(this.frmFirmalarListesi_Load);
             this.pnlUst.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView Liste;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YetkiliAdi1;
         private System.Windows.Forms.Panel pnlUst;
         private System.Windows.Forms.Label lblHastaneKodu;
         private System.Windows.Forms.Button btnKayit;
@@ -232,5 +234,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnTemizle;
         private System.Windows.Forms.Button btnSil;
+        private System.Windows.Forms.DataGridView Liste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirmaYetkili;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FyCep;
     }
 }
