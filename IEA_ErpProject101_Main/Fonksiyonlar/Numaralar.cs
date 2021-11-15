@@ -73,5 +73,20 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
                 return "F00000001";
             }
         }
+        public string urunGenelKodu()
+        {
+            try
+            {
+                var numara = (from s in erp.tblUrunler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "U" + numara.ToString().PadLeft(8, '0'); // 8 haneli olanakadar başına 0 ekliyor.
+                return num;
+            }
+            catch (Exception)
+            {
+
+                return "U00000001";
+            }
+        }
     }
 }

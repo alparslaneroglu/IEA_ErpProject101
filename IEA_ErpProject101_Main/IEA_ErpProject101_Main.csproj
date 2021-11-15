@@ -200,6 +200,9 @@
     <EmbeddedResource Include="UrunIslemleri\frmUrunGiris.resx">
       <DependentUpon>frmUrunGiris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UrunIslemleri\frmUrunlerListesi.resx">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Entity\ErpProjectWMPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ErpProjectWMPModel.Designer.cs</LastGenOutput>

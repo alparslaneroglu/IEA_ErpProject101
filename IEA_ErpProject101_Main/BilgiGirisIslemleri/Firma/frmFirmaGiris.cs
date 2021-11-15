@@ -135,7 +135,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                     hst.Tc_Vn = txtVerTcNo.Text;
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                     hst.CariNo = hkodu;
-
+                    hst.CariUnvan = txtFTipi.Text;
                     erp.tblCariler.Add(hst);
                     erp.SaveChanges();
                     MessageBox.Show("Kayıt başarılı..");
@@ -272,7 +272,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 hst.Adres1 = txtFAdres1.Text;
                 hst.Adres2 = txtFAdres2.Text;
                 hst.CariGroupId = 3;
-                if (txtFTipi.Text!="")
+                if (txtFTipi.Text != "")
                 {
                     hst.CariTipId = (int)txtFTipi.SelectedValue;
                 }
@@ -281,7 +281,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 hst.VDairesi = txtVeriDairesi.Text;
                 hst.Tc_Vn = txtVerTcNo.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
-               
+                hst.CariUnvan = txtFTipi.Text;
 
                 erp.SaveChanges();
                 MessageBox.Show("Kayıt başarılı..");
