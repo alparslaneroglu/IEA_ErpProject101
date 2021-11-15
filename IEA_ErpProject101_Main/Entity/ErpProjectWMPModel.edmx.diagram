@@ -4,16 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a4cbf7b07dd447f882f3289c641a313" Name="Diagram1" ZoomLevel="89">
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="5.875" PointY="4" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="8.125" PointY="4" />
+      <Diagram DiagramId="2a4cbf7b07dd447f882f3289c641a313" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="4.875" PointY="3.75" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="7.125" PointY="3.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGruplari" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="1.875" PointY="2.375" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="4.375" PointY="0.875" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="4.5" PointY="1.25" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="5.75" PointY="7.5" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="4.5" PointY="8.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="7" PointY="6.125" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

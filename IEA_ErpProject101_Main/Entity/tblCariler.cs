@@ -18,6 +18,7 @@ namespace IEA_ErpProject101_Main.Entity
         public tblCariler()
         {
             this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
+            this.tblUrunler = new HashSet<tblUrunler>();
         }
     
         public int Id { get; set; }
@@ -58,5 +59,7 @@ namespace IEA_ErpProject101_Main.Entity
         public virtual tblSehirler tblSehirler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUrunler> tblUrunler { get; set; }
     }
 }

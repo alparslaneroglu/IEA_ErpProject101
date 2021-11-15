@@ -8,13 +8,13 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
 {
     public enum enumFirmaTipi
     {
-        Distributor,
-        Bayi,
-        Sahis_Firmasi,
-        Ara_Satici,
-        Ana_Bayi,
-        Yurtdisi,
-        Kamu,
-        Resmi,
+        Distributor=1,
+        Bayi=2,
+        Sahis_Firmasi=3,
+        Ara_Satici=4,
+        Ana_Bayi=5,
+        Yurtdisi=6,
+
+        Resmi=7,
     }
 }

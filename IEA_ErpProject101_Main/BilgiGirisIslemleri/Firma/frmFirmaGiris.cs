@@ -190,6 +190,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 txtSehir.Text = hst.tblSehirler.sehir;
                 lblFirmaKodu.Text = hst.CariNo;
                 txtKayitBul.Text = hst.CariNo;
+                txtFTipi.Text = hst.CariUnvan;
             }
             catch (Exception e)
             {

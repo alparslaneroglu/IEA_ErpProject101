@@ -3,6 +3,7 @@ using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller;
+using IEA_ErpProject101_Main.UrunIslemleri;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,7 +55,14 @@ namespace IEA_ErpProject101_Main
             #region Depo İşlemleri Menüsü
             tvDepoIslemleri.Nodes.Add("Depo İşlemleri");  // Yeni bir buton için yeni bir düğüm oluşturuyoruz.Sonrasında child larını oluşturuyoruz.
             tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
-            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi"); 
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi");
+            #endregion
+
+            #region Urun Islemleri
+            tvUrunİslemleri.Nodes.Add("Urunler");
+            tvUrunİslemleri.Nodes[0].Nodes.Add("Urun Giriş");
+            tvUrunİslemleri.Nodes[0].Nodes.Add("Urunler Listesi");
+
             #endregion
         }
 
@@ -62,7 +70,7 @@ namespace IEA_ErpProject101_Main
         {
             tvBilgiGirisİslemleri.Visible = false;
             tvDepoIslemleri.Visible = false;
-            tv3.Visible = false;
+            tvUrunİslemleri.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
             tv6.Visible = false;
@@ -79,7 +87,7 @@ namespace IEA_ErpProject101_Main
             TvGorunum();
             tvBilgiGirisİslemleri.Visible = true;
 
-         }
+        }
 
         private void btnDepoIslemleri_Click(object sender, EventArgs e)
         {
@@ -90,37 +98,37 @@ namespace IEA_ErpProject101_Main
 
         private void tvBilgiGirisİslemleri_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
+
         }
-        public static  bool kontrol = false; // static sayesinde kontrolü diğer frmHastanelerListesinden çağırabiliyoruz.
+        public static bool kontrol = false; // static sayesinde kontrolü diğer frmHastanelerListesinden çağırabiliyoruz.
         private void tvBilgiGirisİslemleri_DoubleClick(object sender, EventArgs e)
         {
-           //string isim = "";
-           // if (tvBilgiGirisİslemleri.SelectedNode!=null)
-           // {
-                
-           //      isim = tvBilgiGirisİslemleri.SelectedNode.Text;
-           //     // MessageBox.Show("isim");
-           // }
+            //string isim = "";
+            // if (tvBilgiGirisİslemleri.SelectedNode!=null)
+            // {
+
+            //      isim = tvBilgiGirisİslemleri.SelectedNode.Text;
+            //     // MessageBox.Show("isim");
+            // }
             string isim = tvBilgiGirisİslemleri.SelectedNode != null ? tvBilgiGirisİslemleri.SelectedNode.Text : ""; // Turnery if ile yukarıdaki işlemi tek satırda halletik.Burada Form ekranında sol taraftaki ağaçlar kısmında bir listeyi açtıktan sonra boş biyere tıklarken aldığımız hatayı engelledik.
 
-            if (isim=="Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] as frmHastanelerListesi is null)
+            if (isim == "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] as frmHastanelerListesi is null)
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
-                
-               // kontrol = true;
+
+                // kontrol = true;
             }
             else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] as frmHastaneGiris is null)
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
-                
+
                 //kontrol = true;
             }
-            else if (isim== "Doktor Bilgi Giriş" && Application.OpenForms["frmDoktorGiris"]  is null)
+            else if (isim == "Doktor Bilgi Giriş" && Application.OpenForms["frmDoktorGiris"] is null)
             {
                 frmDoktorGiris frm = new frmDoktorGiris();
                 frm.MdiParent = Home.ActiveForm;
@@ -155,6 +163,37 @@ namespace IEA_ErpProject101_Main
                 frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
+            }
+        }
+
+        private void btnUrunIslemleri_Click(object sender, EventArgs e)
+        {
+            lblBilgiEkrani.Text = btnUrunIslemleri.Text;
+            TvGorunum();
+            tvUrunİslemleri.Visible = true;
+        }
+
+        private void tvUrunİslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = tvUrunİslemleri.SelectedNode != null ? tvUrunİslemleri.SelectedNode.Text : "";
+            if (isim == "Urunler Listesi" && Application.OpenForms["frmUrunlerListesi"] is null)
+            {
+                frmUrunlerListesi frm = new frmUrunlerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
+                // kontrol = true;
+            }
+            else if (isim == "Urun Giriş" && Application.OpenForms["frmUrunGiris"] is null)
+            {
+
+
+                frmUrunGiris frm = new frmUrunGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
+                // kontrol = true;
+                
             }
         }
     }
