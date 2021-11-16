@@ -17,6 +17,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         Numaralar n = new Numaralar();
         public int secimId = -1;
+        private tblCariler idyeGoreBul;
         public frmDoktorGiris()
         {
             InitializeComponent();
@@ -160,7 +161,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         {
             if (secimId > 0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = idyeGoreBul;
                 hst.isActive = false;
                 erp.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
@@ -184,8 +185,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             {
                 return;
             }
-           
-            tblCariler hst = erp.tblCariler.Find(secimId);
+
+            tblCariler hst = idyeGoreBul;
 
 
             hst.isActive = true;
@@ -224,10 +225,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id;
+                idyeGoreBul= erp.tblCariler.Find(id);
             try
+                
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
-
+                tblCariler hst = idyeGoreBul;
+                
 
                 txtDAdi.Text = hst.CariAdi;
                 txtDoktorMail.Text = hst.CariMail;

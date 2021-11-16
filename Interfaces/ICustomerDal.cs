@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {               // Bir classta birden fazla interface kullanılıyor.Fakat miras alınamıyor.
+                //Static bir bölgedir.Çok hızlı erişilir fakat fazla yer kaplar.Static alanlar new lenemez.Program içerisinde global alanda kullanılacak olan şeyler için kullanılıyor.
     interface ICustomerDal
     {
         void Add(); // database yi tanımlanarken kendimiz bu şekilde tanımlayacağız.Bunların içerisini biz tanımlayacağız.

@@ -17,8 +17,9 @@ namespace IEA_ErpProject101_Main.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblCariler()
         {
-            this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
             this.tblUrunler = new HashSet<tblUrunler>();
+            this.tblStokGirisUst = new HashSet<tblStokGirisUst>();
+            this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
         }
     
         public int Id { get; set; }
@@ -58,8 +59,10 @@ namespace IEA_ErpProject101_Main.Entity
         public virtual tblCariGruplari tblCariGruplari { get; set; }
         public virtual tblSehirler tblSehirler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblUrunler> tblUrunler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblStokGirisUst> tblStokGirisUst { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
     }
 }

@@ -103,6 +103,18 @@
     <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.Designer.cs">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.Designer.cs">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGirisListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGirisListe.Designer.cs">
+      <DependentUpon>frmStokGirisListe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,12 +145,19 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblStokGirisAlt.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblStokGirisUst.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblUrunler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
     <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
+    <Compile Include="Fonksiyonlar\formlar.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -183,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.resx">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGiris.resx">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -247,6 +269,7 @@
       <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Images\Save24x24y.png" />
     <None Include="Images\arrow-1176.bmp" />
     <None Include="Images\Sil64.png" />
     <None Include="Images\Sil24x24.png" />

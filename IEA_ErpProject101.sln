@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceMulti", "InterfaceMulti\InterfaceMulti.csproj", "{DB19F40E-C561-40E0-A48C-2C4507893AFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClasses", "AbstractClasses\AbstractClasses.csproj", "{2222EEEE-B56D-4E27-B935-4EE5F4BC6724}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMethods", "ConsoleApp1\VirtualMethods.csproj", "{44DBFA49-250E-4D41-BD88-D77C11C9888C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{DB19F40E-C561-40E0-A48C-2C4507893AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB19F40E-C561-40E0-A48C-2C4507893AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB19F40E-C561-40E0-A48C-2C4507893AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2222EEEE-B56D-4E27-B935-4EE5F4BC6724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2222EEEE-B56D-4E27-B935-4EE5F4BC6724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2222EEEE-B56D-4E27-B935-4EE5F4BC6724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2222EEEE-B56D-4E27-B935-4EE5F4BC6724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44DBFA49-250E-4D41-BD88-D77C11C9888C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44DBFA49-250E-4D41-BD88-D77C11C9888C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44DBFA49-250E-4D41-BD88-D77C11C9888C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44DBFA49-250E-4D41-BD88-D77C11C9888C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

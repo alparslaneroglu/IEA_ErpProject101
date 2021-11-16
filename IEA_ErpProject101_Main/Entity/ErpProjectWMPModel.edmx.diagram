@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a4cbf7b07dd447f882f3289c641a313" Name="Diagram1" ZoomLevel="87">
+      <Diagram DiagramId="2a4cbf7b07dd447f882f3289c641a313" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="4.875" PointY="3.75" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="7.125" PointY="3.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGruplari" />
@@ -12,10 +12,14 @@
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="4.5" PointY="1.25" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="4.5" PointY="8.5" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="7" PointY="6.125" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="6.875" PointY="7" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisAlt" Width="1.5" PointX="12.625" PointY="5.125" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisUst" Width="1.5" PointX="10.125" PointY="4.625" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="4.125" PointY="7.5" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -237,6 +237,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             if (secimId > 0)
             {
+                
                 tblCariler hst = erp.tblCariler.Find(secimId);
                 hst.isActive = false;
                 erp.SaveChanges();

@@ -19,6 +19,7 @@ namespace IEA_ErpProject101_Main.Entity
         {
             this.tblDepartmanlar = new HashSet<tblDepartmanlar>();
             this.tblCariler = new HashSet<tblCariler>();
+            this.tblStokGirisUst = new HashSet<tblStokGirisUst>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace IEA_ErpProject101_Main.Entity
         public virtual ICollection<tblDepartmanlar> tblDepartmanlar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblCariler> tblCariler { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblStokGirisUst> tblStokGirisUst { get; set; }
     }
 }

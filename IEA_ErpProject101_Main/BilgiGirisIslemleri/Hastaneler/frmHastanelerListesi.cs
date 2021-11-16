@@ -16,6 +16,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
     {
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         private int secimId = -1;
+        public bool Secim = false;
         public frmHastanelerListesi()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==1
                        select s).ToList();
             foreach (tblCariler k in lst)  // tblcariler diyerek sadece oradan kayıt al dışarıdan alma diyoruz.
             {
@@ -61,13 +63,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1; //gelen değer null ise -1 al.                 
            
-            if (secimId>0 && Application.OpenForms["frmHastaneGiris"]==null )
+            if (secimId>0 && Secim && Application.OpenForms["frmHastaneGiris"]==null )
             {
-                frmHastaneGiris frm = new frmHastaneGiris();
-                frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
-                
-                frm.Show();
-                frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
+                //frmHastaneGiris frm = new frmHastaneGiris();
+                //frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
+
+                //frm.Show();
+                //frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmHastaneGiris"] != null)

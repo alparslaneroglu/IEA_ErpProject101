@@ -15,6 +15,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
     {
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         private int secimId = -1;
+        public bool Secim1 = false;
         public frmFirmalarListesi()
         {
             InitializeComponent();
@@ -54,13 +55,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1; //gelen değer null ise -1 al.                 
 
-            if (secimId > 0 && Application.OpenForms["frmFirmaGiris"] == null)
+            if (secimId > 0 && Secim1 && Application.OpenForms["frmFirmaGiris"] == null)
             {
-                frmFirmaGiris frm = new frmFirmaGiris();
-                frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
+                //frmFirmaGiris frm = new frmFirmaGiris();
+                //frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
 
-                frm.Show();
-                frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
+                //frm.Show();
+                //frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmFirmaGiris"] != null)

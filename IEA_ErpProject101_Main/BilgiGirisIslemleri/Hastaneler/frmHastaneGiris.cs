@@ -260,6 +260,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         public void Ac(int id)
         {
             secimId = id; // Dış fromdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
+            
             try
             {
                 tblCariler hst = erp.tblCariler.Find(id);
