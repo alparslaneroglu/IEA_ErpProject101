@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 {
-    public partial class frmPersonelGiris : Form
+    public partial class frmPersonelGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
         public int secimId = -1;
         public frmPersonelGiris()
         {
@@ -33,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblPersonelDetay
+            var lst = (from s in db.tblPersonelDetay
                        where s.tblCariler.isActive == true
                        where s.tblCariler.CariGroupId == 6
                        select s).ToList();
@@ -61,9 +61,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         private void ComboDoldur()
         {
             txtPUnvan.DataSource = Enum.GetValues(typeof(enumPersonelUnvan));//Doktor unvanın içindeki tipi enum olan değerleri getir.
-            var lst1 = erp.tblSehirler.ToList();
+            var lst1 = db.tblSehirler.ToList();
 
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
 
             txtPDepartman.DataSource = lst;
             txtPDepartman.ValueMember = "Id";
@@ -109,15 +109,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                     }
                     
                     hst.CariNo = hkodu;
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
                     //Önce bir kayıt yaptık cünkü cariıd ihtiyacımız var ve bunu bir kere kayıt etmeden bulamayız. Ondan dolayı ilk başta carileri kayıt ettik.
                     tblPersonelDetay pdet = new tblPersonelDetay();
-                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
+                    pdet.CariId = db.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
                     pdet.isBasiTarih = txtBaslangic.Value;
                     //pdet.isSonuTarih = txtBitis.Value;
-                    erp.tblPersonelDetay.Add(pdet);
-                    erp.SaveChanges();
+                    db.tblPersonelDetay.Add(pdet);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt başarılı..");
                     Temizle();
                     Listele();
@@ -145,7 +145,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             {
                 return;
             }
-            tblPersonelDetay hst = erp.tblPersonelDetay.First(x=>x.Id==secimId);
+            tblPersonelDetay hst = db.tblPersonelDetay.First(x=>x.Id==secimId);
             hst.tblCariler.CariAdi = txtPAdi.Text;
 
             hst.tblCariler.CariMail = txtPMail.Text;
@@ -171,7 +171,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             }
 
 
-            erp.SaveChanges();
+            db.SaveChanges();
             MessageBox.Show("Guncelleme başarılı..");
             Temizle();
             Listele();
@@ -182,7 +182,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             try
             {
                 txtDurum.Visible = true;
-                tblPersonelDetay hst = erp.tblPersonelDetay.First(x => x.Id== id);
+                tblPersonelDetay hst = db.tblPersonelDetay.First(x => x.Id== id);
 
 
                 txtPAdi.Text = hst.tblCariler.CariAdi;
@@ -238,9 +238,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             if (secimId > 0)
             {
                 
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = db.tblCariler.Find(secimId);
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();

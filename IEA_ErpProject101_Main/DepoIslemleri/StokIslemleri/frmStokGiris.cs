@@ -13,10 +13,11 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 {
-    public partial class frmStokGiris : Form
+    public partial class frmStokGiris : Ortaklar
     {
-        ErpProjectWMPEntities db = new ErpProjectWMPEntities();
-        formlar f = new formlar();
+        //ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //formlar f = new formlar();
+        //Numaralar n = new Numaralar();
         public frmStokGiris()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 
         private void ComboDoldur()
         {
+            txtGenelNo.Text = n.StokGirisGenelKodu();
             txtCariGrup.DataSource = db.tblCariGruplari.ToList();
             txtCariGrup.ValueMember = "Id";
             txtCariGrup.DisplayMember = "GrupAdi";

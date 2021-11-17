@@ -159,6 +159,9 @@
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\formlar.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
+    <Compile Include="Fonksiyonlar\Ortaklar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

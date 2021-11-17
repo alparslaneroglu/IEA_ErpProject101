@@ -29,6 +29,7 @@ namespace IEA_ErpProject101_Main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.tabUstMenu = new System.Windows.Forms.TabControl();
             this.tapPGenel = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@ namespace IEA_ErpProject101_Main
             this.pnlAltBilgi = new System.Windows.Forms.Panel();
             this.pnlSolMenu = new System.Windows.Forms.Panel();
             this.spcSolMenuOrta = new System.Windows.Forms.SplitContainer();
-            this.tvUrunİslemleri = new System.Windows.Forms.TreeView();
             this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
             this.tvBilgiGirisİslemleri = new System.Windows.Forms.TreeView();
             this.tv12 = new System.Windows.Forms.TreeView();
@@ -48,6 +48,7 @@ namespace IEA_ErpProject101_Main
             this.tv6 = new System.Windows.Forms.TreeView();
             this.tv5 = new System.Windows.Forms.TreeView();
             this.tv4 = new System.Windows.Forms.TreeView();
+            this.tvUrunİslemleri = new System.Windows.Forms.TreeView();
             this.btnUrunIslemleri = new System.Windows.Forms.Button();
             this.btnDepoIslemleri = new System.Windows.Forms.Button();
             this.btnBilgiGiris = new System.Windows.Forms.Button();
@@ -165,16 +166,6 @@ namespace IEA_ErpProject101_Main
             this.spcSolMenuOrta.SplitterDistance = 316;
             this.spcSolMenuOrta.TabIndex = 2;
             // 
-            // tvUrunİslemleri
-            // 
-            this.tvUrunİslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvUrunİslemleri.Location = new System.Drawing.Point(0, 0);
-            this.tvUrunİslemleri.Name = "tvUrunİslemleri";
-            this.tvUrunİslemleri.Size = new System.Drawing.Size(272, 312);
-            this.tvUrunİslemleri.TabIndex = 2;
-            this.tvUrunİslemleri.Visible = false;
-            this.tvUrunİslemleri.DoubleClick += new System.EventHandler(this.tvUrunİslemleri_DoubleClick);
-            // 
             // tvDepoIslemleri
             // 
             this.tvDepoIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -276,6 +267,16 @@ namespace IEA_ErpProject101_Main
             this.tv4.Size = new System.Drawing.Size(272, 312);
             this.tv4.TabIndex = 3;
             this.tv4.Visible = false;
+            // 
+            // tvUrunİslemleri
+            // 
+            this.tvUrunİslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvUrunİslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvUrunİslemleri.Name = "tvUrunİslemleri";
+            this.tvUrunİslemleri.Size = new System.Drawing.Size(272, 312);
+            this.tvUrunİslemleri.TabIndex = 2;
+            this.tvUrunİslemleri.Visible = false;
+            this.tvUrunİslemleri.DoubleClick += new System.EventHandler(this.tvUrunİslemleri_DoubleClick);
             // 
             // btnUrunIslemleri
             // 
@@ -390,6 +391,7 @@ namespace IEA_ErpProject101_Main
             this.Controls.Add(this.pnlSolMenu);
             this.Controls.Add(this.pnlAltBilgi);
             this.Controls.Add(this.tabUstMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "ErpProject-Home";

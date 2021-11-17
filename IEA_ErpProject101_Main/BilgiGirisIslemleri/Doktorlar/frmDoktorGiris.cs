@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 {
-    public partial class frmDoktorGiris : Form
+    public partial class frmDoktorGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
         public int secimId = -1;
         private tblCariler idyeGoreBul;
         public frmDoktorGiris()
@@ -34,7 +34,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             
                 Liste.Rows.Clear();
                 int i = 0, sira = 1;
-                var lst = (from s in erp.tblCariler
+                var lst = (from s in db.tblCariler
                            where s.isActive == true
                            where s.CariGroupId==2
                            select new
@@ -66,9 +66,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private void ComboDoldur()
         {
             txtDUnvan.DataSource = Enum.GetValues(typeof(DoktorUnvan));//Doktor unvanın içindeki tipi enum olan değerleri getir.
-            var lst1 = erp.tblSehirler.ToList();
+            var lst1 = db.tblSehirler.ToList();
 
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
             
             txtDepartman1.DataSource = lst;
             txtDepartman1.ValueMember = "Id";
@@ -122,8 +122,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                     hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt başarılı..");
                     Temizle();
                     Listele();
@@ -163,7 +163,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             {
                 tblCariler hst = idyeGoreBul;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();
@@ -210,7 +210,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
 
 
-            erp.SaveChanges();
+            db.SaveChanges();
             MessageBox.Show("Guncelleme başarılı..");
             Temizle();
             Listele();
@@ -225,7 +225,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id;
-                idyeGoreBul= erp.tblCariler.Find(id);
+                idyeGoreBul= db.tblCariler.Find(id);
             try
                 
             {

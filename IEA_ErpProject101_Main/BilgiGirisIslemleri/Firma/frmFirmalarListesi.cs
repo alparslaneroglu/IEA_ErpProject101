@@ -1,4 +1,5 @@
 ﻿using IEA_ErpProject101_Main.Entity;
+using IEA_ErpProject101_Main.Fonksiyonlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
 {
-    public partial class frmFirmalarListesi : Form
+    public partial class frmFirmalarListesi : Ortaklar
     {
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
         private int secimId = -1;
         public bool Secim1 = false;
         public frmFirmalarListesi()
@@ -29,7 +30,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId==3
                        select s).ToList();

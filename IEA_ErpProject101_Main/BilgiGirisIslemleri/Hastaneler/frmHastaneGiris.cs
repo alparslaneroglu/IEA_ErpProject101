@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 {
-    public partial class frmHastaneGiris : Form
+    public partial class frmHastaneGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
         public int secimId = -1;
         public frmHastaneGiris()
         {
@@ -35,7 +35,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId==1
                        select new
@@ -66,10 +66,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
             private  void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst3 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst1 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst2 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst3 = db.tblSehirler.ToList();
 
 
             txtDepartman1.DataSource = lst;
@@ -149,8 +149,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                         hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                         hst.CariNo = hkodu;
 
-                        erp.tblCariler.Add(hst);
-                        erp.SaveChanges();
+                        db.tblCariler.Add(hst);
+                        db.SaveChanges();
                         MessageBox.Show("Kayıt başarılı..");
                         Temizle();
                         Listele();
@@ -177,7 +177,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = db.tblCariler.Find(secimId);
                 
                 hst.CariAdi = txtHastaneAdi.Text;
                 hst.CariMail = txtHastaneMail.Text;
@@ -209,7 +209,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 hst.Tc_Vn = txtVerTcNo.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                 
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Güncelleme başarılı..");
                 Temizle();
                 Listele();
@@ -224,9 +224,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             if (secimId>0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = db.tblCariler.Find(secimId);
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();
@@ -263,7 +263,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             
             try
             {
-                tblCariler hst = erp.tblCariler.Find(id);
+                tblCariler hst = db.tblCariler.Find(id);
 
                 txtHastaneAdi.Text = hst.CariAdi;
                 txtHastaneMail.Text = hst.CariMail;

@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
 {
-    public partial class frmFirmaGiris : Form
+    public partial class frmFirmaGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
         public int secimId = -1;
         public frmFirmaGiris()
         {
@@ -33,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId == 3
                        select new
@@ -66,10 +66,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
 
         private void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
-            var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
-            var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
-            var lst3 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            var lst1 = db.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            var lst2 = db.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
+            var lst3 = db.tblSehirler.ToList();
             txtFTipi.DataSource = Enum.GetValues(typeof(enumFirmaTipi));
 
             txtFDepT1.DataSource = lst;
@@ -136,8 +136,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                     hst.CariNo = hkodu;
                     hst.CariUnvan = txtFTipi.Text;
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt başarılı..");
                     Temizle();
                     Listele();
@@ -161,7 +161,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             secimId = id; // Dış fromdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
             try
             {
-                tblCariler hst = erp.tblCariler.Find(id);
+                tblCariler hst = db.tblCariler.Find(id);
 
                 txtFAdi.Text = hst.CariAdi;
                 txtFMail.Text = hst.CariMail;
@@ -242,7 +242,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = db.tblCariler.Find(secimId);
                 if (secimId<0)
                 {
                     return;
@@ -283,7 +283,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; // txtSehir.SelectedValue !=null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;   farklı çözümleri mevcuttur.
                 hst.CariUnvan = txtFTipi.Text;
 
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Kayıt başarılı..");
                 Temizle();
                 Listele();
@@ -298,9 +298,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             if (secimId > 0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = db.tblCariler.Find(secimId);
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();

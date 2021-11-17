@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 {
-    public partial class frmPersonellerListesi : Form
+    public partial class frmPersonellerListesi : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
         public int secimId = -1;
         public bool Secim1 = false;
         public frmPersonellerListesi()
@@ -33,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblPersonelDetay
+            var lst = (from s in db.tblPersonelDetay
                        where s.tblCariler.isActive == true
                        where s.tblCariler.CariGroupId == 6
                        select s).ToList();
