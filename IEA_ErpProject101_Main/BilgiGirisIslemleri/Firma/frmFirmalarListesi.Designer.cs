@@ -29,6 +29,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFirmalarListesi));
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.btnKayit = new System.Windows.Forms.Button();
@@ -216,6 +217,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.ClientSize = new System.Drawing.Size(1269, 714);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFirmalarListesi";
             this.Text = "frmFirmalarListesi";
             this.Load += new System.EventHandler(this.frmFirmalarListesi_Load);

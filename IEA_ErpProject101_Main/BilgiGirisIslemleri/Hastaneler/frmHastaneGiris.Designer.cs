@@ -29,8 +29,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHastaneGiris));
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblHastaneKodu = new System.Windows.Forms.Label();
+            this.btnKayit = new System.Windows.Forms.Button();
+            this.btnFormCikis = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,13 +87,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.txtVerTcNo = new System.Windows.Forms.MaskedTextBox();
             this.txtHastaneTel = new System.Windows.Forms.MaskedTextBox();
             this.pnlOrta = new System.Windows.Forms.Panel();
-            this.txtCariTipi = new System.Windows.Forms.ComboBox();
             this.txtKayitBul = new System.Windows.Forms.TextBox();
-            this.btnKayit = new System.Windows.Forms.Button();
-            this.btnFormCikis = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
+            this.txtCariTipi = new System.Windows.Forms.ComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
@@ -119,6 +120,62 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.lblHastaneKodu.TabIndex = 1;
             this.lblHastaneKodu.Text = "***";
             this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon64x64;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKayit.Location = new System.Drawing.Point(14, 6);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(69, 48);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.UseVisualStyleBackColor = true;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
+            // 
+            // btnFormCikis
+            // 
+            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
+            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFormCikis.Location = new System.Drawing.Point(1373, 12);
+            this.btnFormCikis.Name = "btnFormCikis";
+            this.btnFormCikis.Size = new System.Drawing.Size(52, 42);
+            this.btnFormCikis.TabIndex = 4;
+            this.btnFormCikis.UseVisualStyleBackColor = true;
+            this.btnFormCikis.Click += new System.EventHandler(this.btnFormCikis_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(101, 6);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(69, 48);
+            this.btnGuncelle.TabIndex = 1;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil64;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(271, 6);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(69, 48);
+            this.btnTemizle.TabIndex = 3;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(184, 6);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(69, 48);
+            this.btnSil.TabIndex = 2;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // pnlAlt
             // 
@@ -595,14 +652,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlOrta.Size = new System.Drawing.Size(1437, 436);
             this.pnlOrta.TabIndex = 17;
             // 
-            // txtCariTipi
-            // 
-            this.txtCariTipi.FormattingEnabled = true;
-            this.txtCariTipi.Location = new System.Drawing.Point(532, 247);
-            this.txtCariTipi.Name = "txtCariTipi";
-            this.txtCariTipi.Size = new System.Drawing.Size(197, 24);
-            this.txtCariTipi.TabIndex = 7;
-            // 
             // txtKayitBul
             // 
             this.txtKayitBul.Location = new System.Drawing.Point(184, 18);
@@ -610,61 +659,13 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.txtKayitBul.Size = new System.Drawing.Size(280, 22);
             this.txtKayitBul.TabIndex = 25;
             // 
-            // btnKayit
+            // txtCariTipi
             // 
-            this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon64x64;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKayit.Location = new System.Drawing.Point(14, 6);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(69, 48);
-            this.btnKayit.TabIndex = 0;
-            this.btnKayit.UseVisualStyleBackColor = true;
-            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
-            // 
-            // btnFormCikis
-            // 
-            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
-            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFormCikis.Location = new System.Drawing.Point(1373, 12);
-            this.btnFormCikis.Name = "btnFormCikis";
-            this.btnFormCikis.Size = new System.Drawing.Size(52, 42);
-            this.btnFormCikis.TabIndex = 4;
-            this.btnFormCikis.UseVisualStyleBackColor = true;
-            this.btnFormCikis.Click += new System.EventHandler(this.btnFormCikis_Click);
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(101, 6);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(69, 48);
-            this.btnGuncelle.TabIndex = 1;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil64;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(271, 6);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(69, 48);
-            this.btnTemizle.TabIndex = 3;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
-            // 
-            // btnSil
-            // 
-            this.btnSil.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(184, 6);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(69, 48);
-            this.btnSil.TabIndex = 2;
-            this.btnSil.UseVisualStyleBackColor = true;
-            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            this.txtCariTipi.FormattingEnabled = true;
+            this.txtCariTipi.Location = new System.Drawing.Point(532, 247);
+            this.txtCariTipi.Name = "txtCariTipi";
+            this.txtCariTipi.Size = new System.Drawing.Size(197, 24);
+            this.txtCariTipi.TabIndex = 7;
             // 
             // frmHastaneGiris
             // 
@@ -676,6 +677,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlAlt);
             this.Controls.Add(this.pnlUst);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHastaneGiris";
             this.Text = "frmHastaneGiris";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHastaneGiris_FormClosing);

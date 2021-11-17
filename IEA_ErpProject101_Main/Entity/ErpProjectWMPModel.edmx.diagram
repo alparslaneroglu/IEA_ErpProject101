@@ -15,11 +15,12 @@
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="6.875" PointY="7" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisAlt" Width="1.5" PointX="12.625" PointY="5.125" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisUst" Width="1.5" PointX="10.125" PointY="4.625" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="4.125" PointY="7.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokDurum" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisUst" Width="1.5" PointX="9.125" PointY="6.625" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

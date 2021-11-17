@@ -29,6 +29,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDoktorlarListesi));
             this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -206,6 +207,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.ClientSize = new System.Drawing.Size(1269, 714);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDoktorlarListesi";
             this.Text = "frmDoktorlarListesi";
             this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);

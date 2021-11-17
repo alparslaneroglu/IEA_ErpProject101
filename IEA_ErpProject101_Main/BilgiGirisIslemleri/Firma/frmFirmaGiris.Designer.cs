@@ -29,6 +29,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFirmaGiris));
             this.txtKayitBul = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbladres2 = new System.Windows.Forms.Label();
@@ -79,7 +80,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.btnTemizle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +88,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirmaYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FyCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pnlOrta.SuspendLayout();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
@@ -665,6 +666,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlUst);
             this.Controls.Add(this.Liste);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFirmaGiris";
             this.Text = "frmFirmaGiris";
             this.Load += new System.EventHandler(this.frmFirmaGiris_Load);

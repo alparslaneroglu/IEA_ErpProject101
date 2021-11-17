@@ -2,6 +2,7 @@
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller;
+using IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +64,21 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
             if (secim)
             {
                 prs.Secim1 = true;
+                prs.ShowDialog();
+            }
+            else
+            {
+                prs.MdiParent = Home.ActiveForm;
+                prs.Show();
+            }
+            return Home.Aktarma;
+        }
+        public int StokGirisListesi(bool secim = false)
+        {
+            frmStokGirisListe prs = new frmStokGirisListe();
+            if (secim)
+            {
+                prs.Secim = true;
                 prs.ShowDialog();
             }
             else
