@@ -62,9 +62,13 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.txtUKutuIcerik = new System.Windows.Forms.TextBox();
             this.txtKayitBul = new System.Windows.Forms.TextBox();
             this.txtUrunTedarikciId = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtKullanimAy = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlUst.SuspendLayout();
             this.pnlOrta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimAy)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFirmaKodu
@@ -227,6 +231,9 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             // pnlOrta
             // 
             this.pnlOrta.AutoScroll = true;
+            this.pnlOrta.Controls.Add(this.txtKullanimAy);
+            this.pnlOrta.Controls.Add(this.label4);
+            this.pnlOrta.Controls.Add(this.label3);
             this.pnlOrta.Controls.Add(this.txtUSatis);
             this.pnlOrta.Controls.Add(this.label6);
             this.pnlOrta.Controls.Add(this.txtUAlis);
@@ -389,6 +396,33 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.txtUrunTedarikciId.Size = new System.Drawing.Size(276, 24);
             this.txtUrunTedarikciId.TabIndex = 7;
             // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(67, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 38);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Kullanım Süresi :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label4.Location = new System.Drawing.Point(181, 273);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 23);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Giriş Ay olarak yapılacak";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtKullanimAy
+            // 
+            this.txtKullanimAy.Location = new System.Drawing.Point(184, 248);
+            this.txtKullanimAy.Name = "txtKullanimAy";
+            this.txtKullanimAy.Size = new System.Drawing.Size(197, 22);
+            this.txtKullanimAy.TabIndex = 54;
+            // 
             // frmUrunGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,6 +440,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.pnlUst.ResumeLayout(false);
             this.pnlOrta.ResumeLayout(false);
             this.pnlOrta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimAy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,5 +480,8 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown txtKullanimAy;
     }
 }

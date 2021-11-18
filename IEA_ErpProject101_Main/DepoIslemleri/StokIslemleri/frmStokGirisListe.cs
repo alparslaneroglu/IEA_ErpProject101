@@ -28,51 +28,42 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
         private void Listele()
         {
             Liste.Rows.Clear();
-            int i = 0, sira = 1;
-            var lst = (from s in db.tblCariler
-                       where s.isActive == true
-                       select s).ToList();
+            int i = 0;
+            var lst = (from s in db.tblStokGirisUst
+                           where s.isActive == true
+                           select s ).ToList();
             foreach (var k in lst)
             {
                 Liste.Rows.Add();
+                
                 Liste.Rows[i].Cells[0].Value = k.Id;
-                Liste.Rows[i].Cells[1].Value = sira;
-                Liste.Rows[i].Cells[2].Value = k.CariNo;
-                Liste.Rows[i].Cells[3].Value = k.CariAdi;
-                Liste.Rows[i].Cells[4].Value = k.CariTel;
-                Liste.Rows[i].Cells[5].Value = k.CariMail;
-                Liste.Rows[i].Cells[6].Value = k.YetkiliCep1;
+                Liste.Rows[i].Cells[1].Value = k.GenelNo;
+                Liste.Rows[i].Cells[2].Value = k.tblCariler.CariAdi;
+                Liste.Rows[i].Cells[3].Value = k.FaturaNo;
+                Liste.Rows[i].Cells[4].Value = k.FaturaTarih;
+                Liste.Rows[i].Cells[5].Value = k.GirisTipi;
+                
+               
                 i++;
-                sira++;
+                
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
-            secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1; //gelen değer null ise -1 al.                 
-
-            if (secimId > 0 && Secim && Application.OpenForms["frmStokGiris"] == null)
+            if(Liste.CurrentRow !=null) secimId=(int?)Liste.CurrentRow.Cells[0].Value ?? -1;
+            if (secimId>0 && Secim)
             {
-                //frmDoktorGiris frm = new frmDoktorGiris();
-                //frm.MdiParent = Home.ActiveForm;//Form.Activeform yerine formun adını yazdık çünkü sonradan bu formunda bir parenti olabilir bu yüzden ileride çakışma ihtimali yüksektir.
-
-                //frm.Show();
-                //frm.Ac(secimId); // frm.Ac showun üstünde olduğu zaman showdan sonra tekrar loada dönüyor ve şehir ve Departman bilgileri sıfırlanıyor.
                 Home.Aktarma = secimId;
                 Close();
-            }
-            else if (Application.OpenForms["frmStokGiris"] != null)
-            {
-                frmStokGiris frm1 = Application.OpenForms["frmStokGiris"] as frmStokGiris;
-                frm1.Ac(secimId);
-                Close();
-
-
-
-
             }
         }
     }

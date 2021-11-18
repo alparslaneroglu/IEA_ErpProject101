@@ -23,6 +23,7 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<int> TedarikciFirmaId { get; set; }
         public Nullable<decimal> AlisFiyat { get; set; }
         public Nullable<decimal> SatisFiyat { get; set; }
+        public Nullable<int> KullanimSuresiAy { get; set; }
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<int> SaveUserId { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }

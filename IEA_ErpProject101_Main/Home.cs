@@ -219,6 +219,15 @@ namespace IEA_ErpProject101_Main
                 frm.Activate();
                
             }
+            else if (isim == "Stok Listesi" && Application.OpenForms["frmStokGirisListe"] is null)
+            {
+
+                frmStokGirisListe frm = new frmStokGirisListe();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
+                // kontrol = true;
+            }
         }
     }
 }

@@ -30,22 +30,17 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStokGirisListe));
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnKapat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ukod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lot_SeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GAdet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Not = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FaturaNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FaturaTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisTipi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +66,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.btnKapat.TabIndex = 4;
             this.btnKapat.Text = "Form Cikis";
             this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // label1
             // 
@@ -96,15 +92,12 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.Liste.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sira,
-            this.barcode,
-            this.Ukod,
-            this.Lot_SeriNo,
-            this.GAdet,
-            this.Not,
-            this.UTarihi,
-            this.SKTarih,
-            this.AlisFiyat});
+            this.Id,
+            this.GenelNo,
+            this.CariAdi,
+            this.FaturaNo,
+            this.FaturaTarih,
+            this.GirisTipi});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 83);
             this.Liste.MultiSelect = false;
@@ -116,82 +109,51 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.Liste.TabIndex = 5;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
-            // Sira
+            // Id
             // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.MinimumWidth = 6;
-            this.Sira.Name = "Sira";
-            this.Sira.Visible = false;
-            this.Sira.Width = 125;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
-            // barcode
+            // GenelNo
             // 
-            this.barcode.HeaderText = "Barkod";
-            this.barcode.MinimumWidth = 6;
-            this.barcode.Name = "barcode";
-            this.barcode.Visible = false;
-            this.barcode.Width = 125;
+            this.GenelNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GenelNo.HeaderText = "Genel No";
+            this.GenelNo.MinimumWidth = 6;
+            this.GenelNo.Name = "GenelNo";
+            this.GenelNo.Width = 97;
             // 
-            // Ukod
+            // CariAdi
             // 
-            this.Ukod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ukod.HeaderText = "Urun Kodu";
-            this.Ukod.MinimumWidth = 6;
-            this.Ukod.Name = "Ukod";
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Cari Adi";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
             // 
-            // Lot_SeriNo
+            // FaturaNo
             // 
-            this.Lot_SeriNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Lot_SeriNo.HeaderText = "Lot / Seri No";
-            this.Lot_SeriNo.MinimumWidth = 6;
-            this.Lot_SeriNo.Name = "Lot_SeriNo";
-            this.Lot_SeriNo.Width = 116;
+            this.FaturaNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FaturaNo.HeaderText = "Fatura No";
+            this.FaturaNo.MinimumWidth = 6;
+            this.FaturaNo.Name = "FaturaNo";
             // 
-            // GAdet
+            // FaturaTarih
             // 
-            this.GAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GAdet.HeaderText = "Giris Adet";
-            this.GAdet.MinimumWidth = 6;
-            this.GAdet.Name = "GAdet";
-            this.GAdet.Width = 99;
+            this.FaturaTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FaturaTarih.HeaderText = "Fatura Tarih";
+            this.FaturaTarih.MinimumWidth = 6;
+            this.FaturaTarih.Name = "FaturaTarih";
+            this.FaturaTarih.Width = 115;
             // 
-            // Not
+            // GirisTipi
             // 
-            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Not.HeaderText = "Not";
-            this.Not.MinimumWidth = 6;
-            this.Not.Name = "Not";
-            // 
-            // UTarihi
-            // 
-            this.UTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.UTarihi.DefaultCellStyle = dataGridViewCellStyle2;
-            this.UTarihi.HeaderText = "UT";
-            this.UTarihi.MinimumWidth = 6;
-            this.UTarihi.Name = "UTarihi";
-            this.UTarihi.Width = 56;
-            // 
-            // SKTarih
-            // 
-            this.SKTarih.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = "-";
-            this.SKTarih.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SKTarih.HeaderText = "SKT";
-            this.SKTarih.MinimumWidth = 6;
-            this.SKTarih.Name = "SKTarih";
-            this.SKTarih.Width = 64;
-            // 
-            // AlisFiyat
-            // 
-            this.AlisFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.AlisFiyat.HeaderText = "Alış Fiyatı";
-            this.AlisFiyat.MinimumWidth = 6;
-            this.AlisFiyat.Name = "AlisFiyat";
-            this.AlisFiyat.Width = 96;
+            this.GirisTipi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisTipi.HeaderText = "Giris Tipi";
+            this.GirisTipi.MinimumWidth = 6;
+            this.GirisTipi.Name = "GirisTipi";
+            this.GirisTipi.Width = 93;
             // 
             // frmStokGirisListe
             // 
@@ -216,14 +178,11 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView Liste;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
-        private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ukod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lot_SeriNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GAdet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Not;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UTarihi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SKTarih;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FaturaNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FaturaTarih;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisTipi;
     }
 }

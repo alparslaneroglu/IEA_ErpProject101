@@ -93,10 +93,10 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 
                 };
                 db.tblStokGirisUst.Add(ust);
-                db.SaveChanges();
+               // db.SaveChanges();
                 #endregion
 
-                
+
                 tblStokDurum[] drm = new tblStokDurum[Liste.RowCount];
 
                 tblStokGirisAlt[] alt = new tblStokGirisAlt[Liste.RowCount];
@@ -109,9 +109,10 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                     var srg = (from s in db.tblStokDurum
                                where s.Barkod == barkod
                                select new { stokadet = s.StokAdet, rafadet = s.RafAdet }).ToList();
-                    
+
                     if (srg.Count == 0) //Kayıt bulamadıysa
                     {
+
                         drm[i].StokKodu = "1";
                         drm[i].Barkod = barkod;
                         drm[i].Urun = Liste.Rows[i].Cells[2].Value.ToString();
@@ -121,9 +122,10 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                         drm[i].KonsinyeAdet = 0; //Default değeri yazdık.
                         drm[i].SubeAdet = 0;
                         drm[i].UT = DateTime.Parse(Liste.Rows[i].Cells[6].Value.ToString());
+
                         drm[i].SKT = DateTime.Parse(Liste.Rows[i].Cells[7].Value.ToString());
                         db.tblStokDurum.Add(drm[i]);
-                        db.SaveChanges();
+                        //db.SaveChanges();
 
                     }
                     else //Kayıt varsa o ürüne verdiğim yeni adet değerlerini ekle.
@@ -131,7 +133,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                         tblStokDurum sdurum = db.tblStokDurum.First(x => x.Barkod == barkod);
                         sdurum.StokAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);   //(int?) int null gelemez demektir.Casting işlemidir.
                         sdurum.RafAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
-                        db.SaveChanges();
+                        //db.SaveChanges();
 
                     }
 
@@ -261,8 +263,55 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 
         private void btnUrunGiris_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int id=f.StokGirisListesi(true);
+            if (id>0)
+            {
+                FormAc(id);
+            }
+            Home.Aktarma = -1;
         }
+
+        private void FormAc(int id)
+        {
+            int i = 0, a = 0;
+            var kayitBul = db.tblStokGirisUst.Find(id);
+            tblStokGirisUst ust = kayitBul;
+            txtGenelNo.Text = ust.GenelNo.ToString();
+            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;
+            txtAciklama.Text = ust.Aciklama;
+            txtFaturaNo.Text = ust.FaturaNo;
+            txtCariAdi.Text = ust.tblCariler.CariAdi;
+            if (ust.FaturaTarih != null) txtGirisTarih.Value = (DateTime)ust.FaturaTarih;
+            if (ust.GirisTipi != null) txtGirisTipi.SelectedIndex = ust.GirisTipi.Value;
+            
+            IQueryable<tblStokGirisAlt> alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            Liste.Rows.Clear();
+            foreach (var k in alt)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+               // DateTime a = Convert.ToDateTime(k.UT);
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                a += (int)Liste.Rows[i].Cells[4].Value;
+                i++;
+
+                
+
+            }
+            txtToplam.Text = a.ToString();
+            
+            Liste.AllowUserToAddRows = false;
+            Liste.ReadOnly = true;
+            
+        }
+            
 
         #endregion
 
@@ -329,7 +378,25 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                         i++;
                     }
                 }
+
+                if (e.ColumnIndex == 6) // 7.colum'a yazıyoruz.Fakat columındex 7 yazarsak o kutuya girip işlem biterken kodları çalıştırıyor.Yani o kutudan çıkarken gerçekleşiyor.Bu yüzden bir önceki colum'u yazarak direkt olarak diğer colum biter bitmez doldurma yapıyoruz.
+                {
+                    if (Liste.CurrentRow.Cells[6].Value != null || Liste.CurrentRow.Cells[6].Value != "")
+                    {
+                        string a = Liste.CurrentRow.Cells[2].Value.ToString();
+                        var lst = (from s in db.tblUrunler
+                                   where s.UrunKodu == a
+                                   select s).FirstOrDefault(); // ilk bulduğun kaydı getir yoksa default değeri getir.
+
+                        int ayy = lst.KullanimSuresiAy.Value;
+                        DateTime ay = Convert.ToDateTime(Liste.CurrentRow.Cells[6].Value);
+                        Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString(); 
+                    }
+                }
+
             }
+
+
             catch (Exception ex)
             {
 

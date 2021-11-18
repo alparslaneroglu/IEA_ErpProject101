@@ -68,6 +68,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.UTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKTarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtToplam = new System.Windows.Forms.TextBox();
             this.pnlUst.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlAlt.SuspendLayout();
@@ -270,6 +271,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             // pnlAlt
             // 
             this.pnlAlt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlAlt.Controls.Add(this.txtToplam);
             this.pnlAlt.Controls.Add(this.txtUrnCombo);
             this.pnlAlt.Controls.Add(this.btnTemizle);
             this.pnlAlt.Controls.Add(this.btnSil);
@@ -379,7 +381,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.Sira.MinimumWidth = 6;
             this.Sira.Name = "Sira";
             this.Sira.Visible = false;
-            this.Sira.Width = 62;
+            this.Sira.Width = 125;
             // 
             // barcode
             // 
@@ -449,6 +451,13 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.AlisFiyat.Name = "AlisFiyat";
             this.AlisFiyat.Width = 96;
             // 
+            // txtToplam
+            // 
+            this.txtToplam.Location = new System.Drawing.Point(490, 24);
+            this.txtToplam.Name = "txtToplam";
+            this.txtToplam.Size = new System.Drawing.Size(100, 22);
+            this.txtToplam.TabIndex = 2;
+            // 
             // frmStokGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -467,6 +476,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
             this.pnlAlt.ResumeLayout(false);
+            this.pnlAlt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
 
@@ -509,5 +519,6 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarihi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKTarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
+        private System.Windows.Forms.TextBox txtToplam;
     }
 }
