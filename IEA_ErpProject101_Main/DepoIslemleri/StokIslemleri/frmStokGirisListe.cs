@@ -32,6 +32,13 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             var lst = (from s in db.tblStokGirisUst
                            where s.isActive == true
                            select s ).ToList();
+
+            //var lst1 = (from s in db.vwStokGiris
+            //            where s.isActive == true
+            //            select s).ToList().Distinct();//view içerisinde iki tabloyu birleştirdiğimiz için mükerrer kayıtlarıda getiriyor.Bunu engellemek için Distinct ifadesini kullanıyoruz ve mükerrer kayıtları getirmesini engelliyoruz.
+
+
+
             foreach (var k in lst)
             {
                 Liste.Rows.Add();

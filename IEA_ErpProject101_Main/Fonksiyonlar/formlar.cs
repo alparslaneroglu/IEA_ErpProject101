@@ -88,6 +88,10 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
             }
             return Home.Aktarma;
         }
-
+        public void StokGuncelleAc()
+        {
+            frmStokGuncelle gnc = new frmStokGuncelle();
+            gnc.ShowDialog();
+        }
     }
 }

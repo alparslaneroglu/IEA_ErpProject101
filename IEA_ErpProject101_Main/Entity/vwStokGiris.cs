@@ -12,10 +12,17 @@ namespace IEA_ErpProject101_Main.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblStokGirisAlt
+    public partial class vwStokGiris
     {
         public int Id { get; set; }
         public Nullable<int> GenelNo { get; set; }
+        public string GrupAdi { get; set; }
+        public string CariAdi { get; set; }
+        public Nullable<int> GirisTipi { get; set; }
+        public string FaturaNo { get; set; }
+        public Nullable<System.DateTime> FaturaTarih { get; set; }
+        public string Aciklama { get; set; }
+        public Nullable<bool> isActive { get; set; }
         public Nullable<int> SiraNo { get; set; }
         public string Barkod { get; set; }
         public string UrunKodu { get; set; }
@@ -25,6 +32,5 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<System.DateTime> UT { get; set; }
         public Nullable<System.DateTime> SKT { get; set; }
         public Nullable<decimal> AlisFiyat { get; set; }
-        public Nullable<bool> isActiveAlt { get; set; }
     }
 }
